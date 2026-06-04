@@ -203,13 +203,11 @@ export function PricingContent({
       >
         <div className="container">
           <header className="pricing-block-header pricing-block-header--center">
-            <p className="pricing-bodymake-eyebrow">パーソナルトレーニングジム TSP</p>
             <h2 id="bodymake-heading" className="pricing-section-heading">
               ボディメイクコース
             </h2>
             <div className="pricing-block-meta pricing-block-meta--center">
-              <span className="pricing-meta-chip">75分トレーニング + 15分ボディケア</span>
-              <span className="pricing-meta-text">週2回（月8回のトレーニング）</span>
+              <span className="pricing-meta-chip">週2回（月8回のトレーニング）</span>
             </div>
           </header>
 
