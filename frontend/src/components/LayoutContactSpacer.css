@@ -1,6 +1,0 @@
-.layout-contact-spacer {
-  flex-shrink: 0;
-  width: 100%;
-  height: var(--social-bar-h, 60px);
-  min-height: var(--social-bar-h, 60px);
-}

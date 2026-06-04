@@ -29,7 +29,6 @@ body {
 
 @media (max-width: 767px) {
   :root {
-    --social-bar-h: 68px;
     --header-h: 52px;
   }
 
@@ -40,26 +39,6 @@ body {
 
   .header-logo-main {
     font-size: 1.15rem;
-  }
-
-  .social-contact-bar-inner {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    width: min(100% - 1.25rem, var(--max-width));
-  }
-
-  .social-contact-item {
-    padding: 0.35rem 0.4rem;
-    gap: 0.4rem;
-  }
-
-  .social-contact-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .social-contact-label {
-    font-size: 0.58rem;
   }
 
   .hero--compact {
@@ -166,12 +145,3 @@ body {
   }
 }
 
-@media (max-width: 380px) {
-  .social-contact-value {
-    font-size: 0.6rem;
-  }
-
-  .header-logo-sub {
-    display: none;
-  }
-}

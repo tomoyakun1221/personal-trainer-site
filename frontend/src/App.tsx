@@ -1,6 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { useLayoutTopHeights } from "./hooks/useLayoutTopHeights";
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
 import { Pricing } from "./pages/Pricing";
@@ -17,15 +16,9 @@ import { AdminTestimonials } from "./pages/admin/AdminTestimonials";
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
 const isStaticSite = import.meta.env.VITE_STATIC_SITE === "true";
 
-function LayoutMetrics() {
-  useLayoutTopHeights();
-  return null;
-}
-
 export default function App() {
   return (
     <BrowserRouter basename={basename || undefined}>
-      <LayoutMetrics />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
