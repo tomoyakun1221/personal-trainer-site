@@ -1,9 +1,20 @@
+import type { ReactNode } from "react";
 import type { PricingPlan } from "../types";
-import { TrialCta } from "./ContactCta";
+import { ContactCta, TrialCta } from "./ContactCta";
+import { InstagramLink } from "./InstagramLink";
 import { resolveBodymakePlans } from "../constants/bodymakePlans";
 import { resolveTicketPlans } from "../constants/pricingPlans";
 import { BrandHeading } from "./BrandHeading";
 import "./PricingContent.css";
+
+function PricingCtaRow({ children }: { children: ReactNode }) {
+  return (
+    <div className="pricing-cta-row">
+      {children}
+      <InstagramLink />
+    </div>
+  );
+}
 
 const TRIAL_POINTS = [
   {
@@ -150,7 +161,11 @@ export function PricingContent({
             </ul>
             <div className="pricing-trial-action">
               <p className="pricing-trial-free-label">※無料で実施致します！！</p>
-              {showCta && <TrialCta />}
+              {showCta && (
+                <PricingCtaRow>
+                  <TrialCta />
+                </PricingCtaRow>
+              )}
             </div>
           </div>
         </div>
@@ -190,7 +205,9 @@ export function PricingContent({
 
           {showCta && (
             <div className="pricing-content-cta">
-              <TrialCta label="メールで体験予約・お問い合わせ" />
+              <PricingCtaRow>
+                <TrialCta label="メールで体験予約・お問い合わせ" />
+              </PricingCtaRow>
             </div>
           )}
         </div>
@@ -231,7 +248,13 @@ export function PricingContent({
 
           {showCta && (
             <div className="pricing-content-cta">
-              <TrialCta label="ボディメイクコースについて問い合わせ" />
+              <PricingCtaRow>
+                <ContactCta
+                  label="ボディメイクコースについて問い合わせ"
+                  subject="ボディメイクコースについて問い合わせ"
+                  className="btn btn-primary"
+                />
+              </PricingCtaRow>
             </div>
           )}
         </div>
