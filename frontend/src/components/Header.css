@@ -41,13 +41,9 @@
   line-height: 1.15;
 }
 
+/* 各ページ見出しと重複するためヘッダーでは非表示 */
 .header-logo-sub {
-  font-size: 0.62rem;
-  font-weight: 600;
-  color: var(--color-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: none;
 }
 
 .header-logo-main {
@@ -128,10 +124,6 @@
     padding: 0.5rem 0.65rem;
     font-size: 0.8125rem;
     white-space: nowrap;
-  }
-
-  .header-logo-sub {
-    font-size: 0.65rem;
   }
 }
 

@@ -3,10 +3,12 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { SocialContactBar } from "./SocialContactBar";
 import { FixedContactBar } from "./FixedContactBar";
+import { useLayoutTopHeights } from "../hooks/useLayoutTopHeights";
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import "./Layout.css";
 
 export function Layout() {
+  useLayoutTopHeights();
   const { setting } = useSiteSetting();
 
   return (
