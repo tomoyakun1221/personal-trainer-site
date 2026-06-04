@@ -84,15 +84,7 @@ export function Profile() {
           </div>
         </div>
 
-        <div className="profile-details grid-2">
-          <div className="card">
-            <h3>資格</h3>
-            <ul>
-              {PROFILE_QUALIFICATIONS.map((q) => (
-                <li key={q}>{q}</li>
-              ))}
-            </ul>
-          </div>
+        <div className="profile-details">
           <div className="card">
             <h3>得意分野</h3>
             <ul>

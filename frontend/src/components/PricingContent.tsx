@@ -206,7 +206,11 @@ export function PricingContent({
           {showCta && (
             <div className="pricing-content-cta">
               <PricingCtaRow>
-                <TrialCta label="メールで体験予約・お問い合わせ" />
+                <ContactCta
+                  label="回数券コースについての問い合わせ"
+                  subject="回数券コースについての問い合わせ"
+                  className="btn btn-primary"
+                />
               </PricingCtaRow>
             </div>
           )}
