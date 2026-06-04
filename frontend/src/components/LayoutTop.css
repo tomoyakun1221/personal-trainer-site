@@ -1,0 +1,18 @@
+.layout-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #0a0f14;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.layout-top .header {
+  position: relative;
+  inset: auto;
+}
+
+.layout-top .social-contact-bar--top {
+  border-top: none;
+}

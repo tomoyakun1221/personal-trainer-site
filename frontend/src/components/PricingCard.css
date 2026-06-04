@@ -1,0 +1,79 @@
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+}
+
+.pricing-card.is-featured {
+  border-color: rgba(34, 211, 168, 0.5);
+  box-shadow: 0 0 0 1px rgba(34, 211, 168, 0.35), var(--shadow);
+}
+
+.pricing-card.is-trial .pricing-free {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.pricing-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: #041016;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+.pricing-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.pricing-breakdown {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 0 0 0.5rem;
+}
+
+.pricing-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+}
+
+.pricing-price span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.pricing-desc,
+.pricing-bulk,
+.pricing-promo,
+.pricing-target,
+.pricing-note {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.pricing-promo {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.pricing-card ul {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  flex: 1;
+}
+
+.pricing-cta {
+  margin-top: auto;
+  width: 100%;
+}

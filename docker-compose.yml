@@ -1,0 +1,52 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: personal_trainer_development
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  api:
+    build: ./api
+    volumes:
+      - ./api:/app
+      - bundle_cache:/usr/local/bundle
+      - api_storage:/app/storage
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      RAILS_ENV: development
+      JWT_SECRET: dev_secret_change_in_production
+      CORS_ORIGINS: http://localhost:5173
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_PROXY: http://api:3000
+    depends_on:
+      - api
+
+volumes:
+  mysql_data:
+  bundle_cache:
+  api_storage:
+  frontend_node_modules:

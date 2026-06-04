@@ -1,0 +1,81 @@
+/* コンパクトヒーロー — 中央揃え */
+.hero--compact {
+  position: relative;
+  min-height: auto;
+  display: block;
+  padding: 2rem 0 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.hero--centered .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-accent {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(34, 211, 238, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(56, 189, 248, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero--compact .hero-content {
+  position: relative;
+  padding: 0;
+}
+
+.hero--compact .brand-heading {
+  margin-bottom: 1.25rem;
+}
+
+.hero--compact .brand-heading-name {
+  font-size: clamp(2.25rem, 8vw, 3.25rem);
+}
+
+.hero--compact .brand-heading-label {
+  font-size: 0.8rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.cta-banner {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, rgba(34, 211, 168, 0.15), rgba(56, 189, 248, 0.1));
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-banner-inner {
+  text-align: center;
+}
+
+.cta-banner-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+}
+
+.cta-banner h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.cta-banner p {
+  color: var(--color-muted);
+  margin: 0 0 1.5rem;
+}
+
+.cta-banner .hero-actions {
+  justify-content: center;
+}

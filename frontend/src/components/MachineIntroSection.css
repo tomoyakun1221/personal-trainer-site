@@ -1,0 +1,143 @@
+.machine-intro {
+  padding: 3.5rem 0;
+  background: linear-gradient(180deg, #05080c 0%, var(--color-bg) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.machine-intro-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.machine-intro-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+}
+
+.machine-intro-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .machine-intro-grid {
+    grid-template-columns: minmax(280px, 1fr) 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.machine-intro-visual {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.machine-intro-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #0d1218;
+  line-height: 0;
+}
+
+.machine-intro-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.12) 0%, transparent 45%, rgba(34, 211, 238, 0.08) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.machine-intro-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.machine-intro-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #041016;
+  background: linear-gradient(135deg, #fb923c, #fbbf24);
+  box-shadow: 0 4px 16px rgba(251, 146, 60, 0.4);
+}
+
+.machine-intro-copy {
+  text-align: left;
+}
+
+.machine-intro-lead {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin: 0 0 1rem;
+}
+
+.machine-intro-lead strong {
+  color: var(--color-accent-orange);
+  font-weight: 800;
+}
+
+.machine-intro-copy > p {
+  margin: 0 0 1.25rem;
+  color: var(--color-muted);
+  line-height: 1.85;
+}
+
+.machine-intro-subtitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.machine-intro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.machine-intro-tags li {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(34, 211, 168, 0.1);
+  border: 1px solid rgba(34, 211, 168, 0.25);
+  color: #a7f3d0;
+}
+
+.machine-intro-tags-more {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--color-muted) !important;
+}
+
+@media (min-width: 900px) {
+  .machine-intro-frame {
+    max-width: 100%;
+  }
+}

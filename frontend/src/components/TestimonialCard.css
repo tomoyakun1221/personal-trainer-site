@@ -1,0 +1,61 @@
+.voice-card {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, #1a2530 0%, #121a22 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  overflow: visible;
+  text-align: left;
+}
+
+.voice-card-slash {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 4px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #fb923c 0%, rgba(251, 146, 60, 0.3) 100%);
+  transform: skewY(-6deg);
+}
+
+.voice-card-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 800;
+  color: #fb923c;
+  letter-spacing: 0.02em;
+}
+
+.voice-card-body p {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: #e2e8f0;
+}
+
+.voice-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 男性ゲスト — スクショ風のミントグリーン */
+.voice-card--male .voice-card-body p {
+  color: #a7f3d0;
+  font-weight: 600;
+}
+
+.voice-card--male .voice-card-highlight {
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 800;
+  color: #6ee7b7;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* 女性ゲスト */
+.voice-card--female .voice-card-body p {
+  color: #f1f5f9;
+  font-weight: 400;
+}

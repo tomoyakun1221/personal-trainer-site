@@ -1,0 +1,26 @@
+.DS_Store
+.env
+.env.*
+!.env.production.example
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Rails
+api/log/*
+api/tmp/*
+!api/log/.keep
+!api/tmp/.keep
+api/storage/*
+!api/storage/.keep
+api/.bundle/
+api/vendor/bundle/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Build artifacts
+*.tsbuildinfo

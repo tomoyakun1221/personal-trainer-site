@@ -1,0 +1,88 @@
+.about-page .about-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-page .section-subtitle {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-table {
+  padding: 0;
+  overflow: hidden;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.about-dl {
+  margin: 0;
+}
+
+.about-row {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-row:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 640px) {
+  .about-row {
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
+
+.about-row dt {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-orange);
+  white-space: nowrap;
+}
+
+.about-row dd {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.about-services {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.about-services li {
+  margin-bottom: 0.4rem;
+}
+
+.about-services li:last-child {
+  margin-bottom: 0;
+}
+
+.about-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.about-link:hover {
+  text-decoration: underline;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+}

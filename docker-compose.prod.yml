@@ -1,0 +1,41 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
+      MYSQL_DATABASE: personal_trainer_production
+    volumes:
+      - mysql_prod_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD:-password}"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-8080}:3000"
+    environment:
+      RAILS_ENV: production
+      DB_HOST: db
+      DB_USERNAME: root
+      DB_PASSWORD: ${DB_PASSWORD:-password}
+      DB_PORT: "3306"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:?Set SECRET_KEY_BASE}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET}
+      APP_HOST: ${APP_HOST:-localhost:8080}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080}
+      RUN_DB_SEED: ${RUN_DB_SEED:-true}
+      FORCE_SSL: "false"
+    volumes:
+      - api_storage:/app/storage
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  mysql_prod_data:
+  api_storage:

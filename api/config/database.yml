@@ -1,0 +1,30 @@
+default: &default
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+mysql: &mysql
+  <<: *default
+  adapter: mysql2
+  encoding: utf8mb4
+  username: <%= ENV.fetch("DB_USERNAME", "root") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "password") %>
+  host: <%= ENV.fetch("DB_HOST", "db") %>
+  port: <%= ENV.fetch("DB_PORT", "3306") %>
+
+development:
+  <<: *mysql
+  database: personal_trainer_development
+
+test:
+  <<: *mysql
+  database: personal_trainer_test
+
+production:
+  <<: *default
+<% if ENV["DATABASE_URL"].to_s.start_with?("postgres") %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV["DATABASE_URL"] %>
+<% else %>
+  <<: *mysql
+  database: personal_trainer_production
+<% end %>

@@ -1,0 +1,31 @@
+# Render Blueprint: https://dashboard.render.com/blueprints
+# GitHub 連携後「New」→「Blueprint」でこのリポジトリを選択
+
+databases:
+  - name: tsp-db
+    databaseName: tsp_gym
+    user: tsp_gym
+    plan: free
+
+services:
+  - type: web
+    name: tsp-gym
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RUN_DB_SEED
+        value: "true"
+      - key: FORCE_SSL
+        value: "true"
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tsp-db
+          property: connectionString

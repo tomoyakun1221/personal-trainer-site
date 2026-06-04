@@ -1,0 +1,138 @@
+.header {
+  position: relative;
+  height: var(--header-h);
+  background: rgba(10, 15, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  gap: 1rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.header-logo-mark {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+}
+
+.header-logo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.15;
+}
+
+.header-logo-sub {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-logo-main {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #22d3ee, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-toggle {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.header-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.header-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  gap: 0.25rem;
+}
+
+.header-nav.is-open {
+  display: flex;
+}
+
+.header-nav a {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+
+.header-nav a.active {
+  background: rgba(34, 211, 168, 0.12);
+  color: var(--color-accent);
+}
+
+@media (min-width: 1024px) {
+  .header-toggle {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0;
+    gap: 0.1rem;
+  }
+
+  .header-nav a {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .header-logo-sub {
+    font-size: 0.65rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header-nav a {
+    font-size: 0.95rem;
+  }
+}

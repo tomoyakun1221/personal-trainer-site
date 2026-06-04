@@ -1,0 +1,45 @@
+.brand-heading {
+  margin-bottom: 1.5rem;
+}
+
+.brand-heading--center {
+  text-align: center;
+}
+
+.brand-heading-label {
+  margin: 0;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #22d3ee;
+}
+
+.brand-heading-name {
+  margin: 0.15rem 0 0;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #22d3ee, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(220, 38, 38, 0.35));
+}
+
+.brand-heading-sub {
+  margin: 0.5rem 0 0;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 700;
+  color: #22d3ee;
+}
+
+.brand-heading--light .brand-heading-label,
+.brand-heading--light .brand-heading-sub {
+  color: #e0f2fe;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.brand-heading--light .brand-heading-name {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.45));
+}

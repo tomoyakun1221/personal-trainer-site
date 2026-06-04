@@ -1,0 +1,394 @@
+.pricing-content {
+  --pricing-accent: #22d3ee;
+  --pricing-accent-dim: rgba(34, 211, 238, 0.12);
+  --pricing-border: rgba(255, 255, 255, 0.08);
+  --pricing-card: #121a22;
+  --pricing-card-elevated: #1a2530;
+}
+
+.pricing-content--centered .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-content--centered .pricing-trial-card {
+  width: 100%;
+  max-width: 720px;
+}
+
+.pricing-content--centered .pricing-tickets-grid {
+  width: 100%;
+  max-width: 960px;
+}
+
+.pricing-content--centered .pricing-campaign {
+  width: 100%;
+  max-width: 560px;
+}
+
+.pricing-content--centered .pricing-content-cta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-content-page-header {
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+}
+
+.pricing-content-page-lead {
+  margin: 0.5rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.pricing-content-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.pricing-content-jump a {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  color: var(--pricing-accent);
+  background: var(--pricing-accent-dim);
+}
+
+.pricing-content-jump a:hover {
+  background: rgba(34, 211, 238, 0.2);
+}
+
+.pricing-block-lead {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.pricing-block {
+  padding: 3.5rem 0;
+}
+
+.pricing-block--tickets {
+  background: var(--color-surface);
+  border-top: 1px solid var(--pricing-border);
+  border-bottom: 1px solid var(--pricing-border);
+  scroll-margin-top: calc(var(--layout-top-h) + 1rem);
+}
+
+#trial-course {
+  scroll-margin-top: calc(var(--layout-top-h) + 1rem);
+}
+
+.pricing-block-header {
+  margin-bottom: 2rem;
+}
+
+.pricing-block-header--center {
+  text-align: center;
+}
+
+.pricing-section-heading {
+  margin: 0;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+  color: var(--pricing-accent);
+  letter-spacing: 0.02em;
+}
+
+.pricing-block-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.pricing-block-meta--center {
+  justify-content: center;
+}
+
+.pricing-meta-chip {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--pricing-accent-dim);
+  color: var(--pricing-accent);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+.pricing-meta-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* Trial card */
+.pricing-trial-card {
+  background: var(--pricing-card);
+  border: 1px solid var(--pricing-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.pricing-trial-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-trial-item {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--pricing-border);
+}
+
+.pricing-trial-item:last-child {
+  border-bottom: none;
+}
+
+.pricing-trial-item-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.pricing-trial-num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: #041016;
+}
+
+.pricing-trial-item h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.pricing-trial-item > p {
+  margin: 0;
+  padding-left: 2.75rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+}
+
+.pricing-trial-action {
+  padding: 1.75rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--pricing-card-elevated) 0%, rgba(34, 211, 238, 0.06) 100%);
+  border-top: 1px solid var(--pricing-border);
+}
+
+.pricing-trial-free-label {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.pricing-trial-action .btn {
+  min-width: min(100%, 280px);
+}
+
+/* Ticket cards */
+.pricing-tickets-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .pricing-tickets-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-ticket-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--pricing-card);
+  border: 1px solid var(--pricing-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pricing-ticket-card:hover {
+  border-color: rgba(34, 211, 238, 0.25);
+  transform: translateY(-2px);
+}
+
+.pricing-ticket-card-head {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(34, 211, 168, 0.45);
+}
+
+.pricing-ticket-card-head h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.pricing-ticket-card-head p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.pricing-ticket-price {
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.pricing-ticket-yen {
+  font-size: 0.65em;
+  font-weight: 700;
+}
+
+.pricing-ticket-unit {
+  font-size: 0.5em;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-left: 0.1em;
+}
+
+.pricing-ticket-desc p,
+.pricing-ticket-note,
+.pricing-ticket-target {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.pricing-ticket-bulk {
+  margin: 0.75rem 0;
+  padding: 0.65rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  background: var(--pricing-accent-dim);
+  color: var(--pricing-accent);
+}
+
+.pricing-ticket-promo {
+  margin: 0.75rem 0;
+  padding: 0.85rem;
+  border-radius: var(--radius);
+  border-left: 3px solid #fb923c;
+  background: rgba(251, 146, 60, 0.08);
+}
+
+.pricing-ticket-promo p {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #fdba74;
+}
+
+.pricing-ticket-promo p:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-ticket-target {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+/* Campaign footer */
+.pricing-campaign {
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  background: var(--pricing-card);
+  border: 1px solid var(--pricing-border);
+}
+
+.pricing-campaign-lead {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-accent-orange);
+  letter-spacing: 0.05em;
+}
+
+.pricing-campaign-fee {
+  margin: 0 0 1rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-weight: 700;
+}
+
+.pricing-campaign-fee s {
+  color: var(--color-muted);
+  margin-right: 0.35rem;
+}
+
+.pricing-campaign-fee strong {
+  font-size: 1.35em;
+  color: #f87171;
+  font-weight: 900;
+}
+
+.pricing-campaign-notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-campaign-notes li {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.pricing-content-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pricing-content-cta .btn {
+  min-width: min(100%, 280px);
+}
+
+@media (max-width: 640px) {
+  .pricing-trial-item > p {
+    padding-left: 0;
+  }
+
+  .pricing-block {
+    padding: 2.5rem 0;
+  }
+}
