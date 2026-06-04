@@ -10,6 +10,6 @@ export const COMPANY_SERVICES = [
 
 export const COMPANY_HOURS = "土曜、日曜（お客様に合わせて平日も可能）";
 export const COMPANY_CLOSED = "不定休";
-export const COMPANY_WEBSITE_NOTE = "随時掲載予定";
+export const COMPANY_WEBSITE_NOTE = "https://tomoyakun1221.github.io/personal-trainer-site/";
 export const COMPANY_TEL = "090-5408-6445";
 export const COMPANY_EMAIL = CONTACT_EMAIL;
