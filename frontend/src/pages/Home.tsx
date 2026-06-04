@@ -39,10 +39,6 @@ export function Home() {
         <div className="hero-accent" aria-hidden />
         <div className="container hero-content">
           <BrandHeading align="center" light />
-          <div className="hero-actions">
-            <ContactCta label="無料カウンセリング・体験" subject="無料カウンセリング・体験の申込" />
-            <InstagramLink url={instagramUrl} />
-          </div>
         </div>
       </section>
 
