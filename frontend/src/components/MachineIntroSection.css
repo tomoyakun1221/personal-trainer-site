@@ -136,6 +136,23 @@
   color: var(--color-muted) !important;
 }
 
+.machine-intro-footer {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.machine-intro-footer .btn {
+  width: 100%;
+  max-width: 320px;
+}
+
+@media (min-width: 900px) {
+  .machine-intro-footer .btn {
+    width: auto;
+  }
+}
+
 @media (min-width: 900px) {
   .machine-intro-frame {
     max-width: 100%;

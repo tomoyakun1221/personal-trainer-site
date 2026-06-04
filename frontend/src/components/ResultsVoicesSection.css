@@ -6,12 +6,15 @@
 
 .results-voices--preview {
   padding: 2.5rem 0;
+  background: var(--color-surface);
 }
 
 .results-voices-preview-block {
   width: 100%;
   max-width: 640px;
+  margin-inline: auto;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .results-voices-preview-block:last-child {
@@ -22,31 +25,39 @@
   min-width: min(100%, 320px);
 }
 
-.results-voices-block {
-  width: 100%;
-  scroll-margin-top: var(--layout-top-h, 116px);
-}
-
-.results-voices-inner--page {
-  align-items: stretch;
-  text-align: center;
-}
-
 .results-voices-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  width: 100%;
+}
+
+.results-voices-inner--page {
+  align-items: stretch;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.results-voices-block {
+  width: 100%;
+  scroll-margin-top: calc(var(--layout-top-h, 116px) + 1rem);
+}
+
+.results-voices-block--voices {
+  margin-top: 0;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .results-voices-header {
   margin-bottom: 1.5rem;
   width: 100%;
-  max-width: 640px;
+  text-align: center;
 }
 
 .results-voices-header--voices {
-  margin-top: 2.5rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
@@ -63,30 +74,45 @@
 }
 
 .home-section-lead {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 36rem;
   font-size: 0.95rem;
   color: var(--color-muted);
+  line-height: 1.7;
 }
 
 .results-voices-ba-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
   width: 100%;
-  max-width: 920px;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
   .results-voices-ba-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: start;
   }
 }
 
 .results-voices-testimonials {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1.5rem;
   width: 100%;
-  max-width: 800px;
+  margin-inline: auto;
 }
 
+@media (min-width: 768px) {
+  .results-voices-testimonials {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 767px) {
+  .results-voices-testimonials {
+    max-width: 100%;
+  }
+}

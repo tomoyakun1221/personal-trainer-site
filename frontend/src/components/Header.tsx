@@ -7,6 +7,7 @@ const navItems = [
   { to: "/", label: "トップ" },
   { to: "/profile", label: "プロフィール" },
   { to: "/pricing", label: "料金" },
+  { to: "/equipment", label: "設備" },
   { to: "/results", label: "実績" },
   { to: "/about", label: "会社概要" },
 ];

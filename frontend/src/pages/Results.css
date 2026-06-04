@@ -3,15 +3,35 @@
 }
 
 .results-hero {
-  padding-bottom: 1.5rem;
+  padding: 2.5rem 0 2rem;
+  text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.results-hero .container {
+  max-width: var(--max-width);
 }
 
 .results-hero .brand-heading {
   margin-bottom: 1rem;
 }
 
+.results-hero .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.results-hero .section-subtitle {
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
 .results-page .results-voices {
-  padding-top: 0;
+  padding-top: 2.5rem;
   padding-bottom: 4rem;
+  border-top: none;
+}
+
+.results-page .results-voices .container {
+  width: min(100% - 1.25rem, var(--max-width));
+  margin-inline: auto;
 }

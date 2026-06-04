@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MACHINE_IMAGE, MACHINE_TRAINING_EXAMPLES } from "../constants/machine";
 import "./MachineIntroSection.css";
 
@@ -33,6 +34,12 @@ export function MachineIntroSection() {
               ))}
               <li className="machine-intro-tags-more">など</li>
             </ul>
+
+            <div className="machine-intro-footer">
+              <Link to="/equipment" className="btn btn-primary">
+                トレーニング設備の詳細を見る
+              </Link>
+            </div>
           </div>
         </div>
       </div>

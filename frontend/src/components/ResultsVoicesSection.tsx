@@ -71,7 +71,7 @@ export function ResultsVoicesSection({
       <div className="container results-voices-inner results-voices-inner--page">
         <div id="before-after" className="results-voices-block">
           <header className="results-voices-header">
-            <h2 className="home-section-heading">ビフォーアフター実績</h2>
+            <h2 className="home-section-heading">ビフォーアフター</h2>
             <p className="home-section-lead">お客様の変化をご紹介（許可を得た範囲で掲載）</p>
           </header>
 

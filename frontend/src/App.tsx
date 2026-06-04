@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
 import { Pricing } from "./pages/Pricing";
 import { Results } from "./pages/Results";
+import { Equipment } from "./pages/Equipment";
 import { About } from "./pages/About";
 import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminLogin } from "./pages/admin/AdminLogin";
@@ -24,6 +25,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="equipment" element={<Equipment />} />
           <Route path="results" element={<Results />} />
           <Route path="about" element={<About />} />
         </Route>
