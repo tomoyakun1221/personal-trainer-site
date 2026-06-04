@@ -28,7 +28,7 @@ export function Profile() {
   return (
     <section className="section profile-page">
       <div className="container">
-        <BrandHeading />
+        <BrandHeading align="center" />
         <h1 className="section-title profile-page-title">プロフィール</h1>
 
         <div className="profile-grid">
