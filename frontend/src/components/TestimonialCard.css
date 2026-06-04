@@ -54,8 +54,8 @@
   letter-spacing: 0.02em;
 }
 
-/* 女性ゲスト */
+/* 女性ゲスト — 男性ゲストと同様のミントグリーン */
 .voice-card--female .voice-card-body p {
-  color: #f1f5f9;
-  font-weight: 400;
+  color: #a7f3d0;
+  font-weight: 600;
 }
