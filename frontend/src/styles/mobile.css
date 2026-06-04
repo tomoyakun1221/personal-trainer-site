@@ -4,8 +4,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
-  overflow-x: hidden;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
@@ -45,9 +48,14 @@ body {
     max-width: 9rem;
   }
 
+  :root {
+    --social-bar-h: 58px;
+  }
+
   .social-contact-bar--fixed .social-contact-bar-inner {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+    width: min(100% - 1.25rem, var(--max-width));
   }
 
   .social-contact-item {

@@ -1,0 +1,7 @@
+/* 固定バー分の余白（本文が隠れないように） */
+.layout-contact-spacer {
+  flex-shrink: 0;
+  height: calc(var(--social-bar-h) + env(safe-area-inset-top, 0px));
+  width: 100%;
+  pointer-events: none;
+}

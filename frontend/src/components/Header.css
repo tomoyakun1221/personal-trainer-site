@@ -1,6 +1,7 @@
 .header {
-  position: relative;
-  z-index: 50;
+  position: sticky;
+  top: calc(var(--social-bar-h) + env(safe-area-inset-top, 0px));
+  z-index: 100;
   height: var(--header-h);
   background: rgba(10, 15, 20, 0.95);
   backdrop-filter: blur(12px);
