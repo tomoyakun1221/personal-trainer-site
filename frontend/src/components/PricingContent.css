@@ -17,9 +17,10 @@
   max-width: 720px;
 }
 
-.pricing-content--centered .pricing-tickets-grid {
+.pricing-content--centered .pricing-tickets-grid,
+.pricing-content--centered .pricing-bodymake-grid {
   width: 100%;
-  max-width: 960px;
+  max-width: 1100px;
 }
 
 .pricing-content--centered .pricing-campaign {
@@ -84,8 +85,128 @@
   scroll-margin-top: calc(var(--layout-top-h) + 1rem);
 }
 
-#trial-course {
+#trial-course,
+#bodymake-courses {
   scroll-margin-top: calc(var(--layout-top-h) + 1rem);
+}
+
+.pricing-block--bodymake {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.04) 0%, var(--color-bg) 100%);
+}
+
+.pricing-bodymake-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.pricing-bodymake-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .pricing-bodymake-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-bodymake-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--pricing-card);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pricing-bodymake-card:hover {
+  border-color: rgba(34, 211, 238, 0.45);
+  transform: translateY(-2px);
+}
+
+.pricing-bodymake-card-head {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid rgba(34, 211, 238, 0.5);
+  text-align: center;
+}
+
+.pricing-bodymake-card-head h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--pricing-accent);
+}
+
+.pricing-bodymake-card-head p {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.pricing-bodymake-sessions {
+  margin-top: 0.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  color: var(--color-text) !important;
+}
+
+.pricing-bodymake-price {
+  text-align: center;
+  font-size: clamp(1.65rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.pricing-bodymake-tax {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.45em;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.pricing-bodymake-frequency {
+  margin: 0 0 1rem;
+  padding: 0.65rem 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.55;
+  border-radius: var(--radius);
+  background: var(--pricing-accent-dim);
+  color: var(--pricing-accent);
+}
+
+.pricing-bodymake-features {
+  margin: 0;
+  padding-left: 1.15rem;
+  flex: 1;
+}
+
+.pricing-bodymake-features li {
+  margin-bottom: 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
+
+.pricing-bodymake-features li:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-campaign--bodymake {
+  margin-top: 2rem;
+  border-color: rgba(34, 211, 238, 0.2);
 }
 
 .pricing-block-header {

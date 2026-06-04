@@ -45,6 +45,60 @@ PricingPlan.delete_all
     features: ""
   },
   {
+    name: "2ヶ月コース",
+    price: 95_000,
+    period: "税込",
+    plan_category: "bodymake",
+    course_breakdown: "75分トレーニング + 15分ボディケア",
+    bulk_offer: "全16回",
+    description: "週2回（月8回のトレーニング）を2ヶ月間実施していきます",
+    includes_drink: true,
+    featured: true,
+    position: 1,
+    features: <<~TEXT.strip
+      長年スポーツジムに通っているのに、なかなか理想の身体にならない…という方へ向けた、目標に直結するボディメイクを行うプログラムです。
+      体力・目的に合わせてトレーニングの量や頻度、強度を細かく調整し、効率よく体を作っていくサポートをします。
+      基本から正しいフォームを身につけながら、今の自分の課題を見つけ、続けられるトレーニングの習慣を定着させます。
+      限られた期間で、遠回りせずに理想の身体を目指したい方におすすめです。
+    TEXT
+  },
+  {
+    name: "3ヶ月コース",
+    price: 145_000,
+    period: "税込",
+    plan_category: "bodymake",
+    course_breakdown: "75分トレーニング + 15分ボディケア",
+    bulk_offer: "全24回",
+    description: "週2回（月8回のトレーニング）を3ヶ月間実施していきます",
+    includes_drink: true,
+    featured: false,
+    position: 2,
+    features: <<~TEXT.strip
+      運動を「特別なこと」ではなく、日常生活の中で自然に続けられる健康的な習慣を身につけることを目指します。
+      自宅で取り入れやすいトレーニングや、効率的に筋肉を増やしながらダイエットする方法なども合わせて伝えていきます。
+      食事や睡眠、活動量など、生活全体のバランスを整えながら、根本から体質を変えていくサポートを行います。
+      「一時的なダイエット」ではなく、長く健康な身体を維持したい方に最適なプログラムです。
+    TEXT
+  },
+  {
+    name: "4ヶ月コース",
+    price: 180_000,
+    period: "税込",
+    plan_category: "bodymake",
+    course_breakdown: "75分トレーニング + 15分ボディケア",
+    bulk_offer: "全32回",
+    description: "週2回（月8回のトレーニング）を4ヶ月間実施していきます",
+    includes_drink: true,
+    featured: false,
+    position: 3,
+    features: <<~TEXT.strip
+      ボディメイクを「つらい努力」ではなく、「楽しいライフスタイル」に変えていくことを重視したプログラムです。
+      通常のトレーニング指導に加え、身体を動かす時間そのものを楽しめる遊び的な要素も取り入れていきます。
+      運動初心者の方でも、気づけば「体を動かすことが好きだ」と感じられるような環境づくりを目指します。
+      食事や運動を前向きに楽しみながら、ライフスタイルそのものを豊かにしていきたい方に向けたオリジナルプログラムです。
+    TEXT
+  },
+  {
     name: "50分コース",
     price: 4300,
     period: "回",
@@ -56,7 +110,7 @@ PricingPlan.delete_all
       "《期間限定OPEN記念》当該コース限定！\n3回限定の2,100円／回でお試しいただけます！\nパーソナルトレーニング受けたいけど不安でどんなものなのか、まずは体験したい方におすすめのコースです！",
     target_audience: nil,
     featured: true,
-    position: 1,
+    position: 4,
     features: ""
   },
   {
@@ -71,7 +125,7 @@ PricingPlan.delete_all
     target_audience: "栄養補給したい方 一息休憩入れたい方におすすめのコースです。",
     includes_drink: true,
     featured: false,
-    position: 2,
+    position: 5,
     features: ""
   },
   {
@@ -86,7 +140,7 @@ PricingPlan.delete_all
     target_audience: "栄養補給したい方 一息休憩入れたい方におすすめのコースです。",
     includes_drink: true,
     featured: false,
-    position: 3,
+    position: 6,
     features: ""
   }
 ].each { |attrs| PricingPlan.create!(attrs) }

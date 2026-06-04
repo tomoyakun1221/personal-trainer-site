@@ -1,5 +1,6 @@
 import type { PricingPlan } from "../types";
 import { TrialCta } from "./ContactCta";
+import { resolveBodymakePlans } from "../constants/bodymakePlans";
 import { resolveTicketPlans } from "../constants/pricingPlans";
 import { BrandHeading } from "./BrandHeading";
 import "./PricingContent.css";
@@ -27,6 +28,34 @@ interface PricingContentProps {
   showPageHeader?: boolean;
   showCta?: boolean;
   centered?: boolean;
+}
+
+function BodyMakeCard({ plan }: { plan: PricingPlan }) {
+  return (
+    <article className="pricing-bodymake-card">
+      <header className="pricing-bodymake-card-head">
+        <h3>{plan.name}</h3>
+        {plan.course_breakdown && <p>{plan.course_breakdown}</p>}
+        {plan.bulk_offer && <p className="pricing-bodymake-sessions">{plan.bulk_offer}</p>}
+      </header>
+
+      <div className="pricing-bodymake-price">
+        <span className="pricing-ticket-yen">¥</span>
+        {plan.price.toLocaleString()}
+        <span className="pricing-bodymake-tax">（{plan.period}）</span>
+      </div>
+
+      {plan.description && <p className="pricing-bodymake-frequency">{plan.description}</p>}
+
+      {plan.features.length > 0 && (
+        <ul className="pricing-bodymake-features">
+          {plan.features.map((line) => (
+            <li key={line}>{line}</li>
+          ))}
+        </ul>
+      )}
+    </article>
+  );
 }
 
 function TicketCard({ plan }: { plan: PricingPlan }) {
@@ -78,6 +107,7 @@ export function PricingContent({
   showCta = true,
   centered = false,
 }: PricingContentProps) {
+  const bodymake = resolveBodymakePlans(plans);
   const tickets = resolveTicketPlans(plans);
 
   return (
@@ -88,6 +118,7 @@ export function PricingContent({
           <p className="pricing-content-page-lead">料金はすべて税込表示です</p>
           <nav className="pricing-content-jump" aria-label="料金セクション">
             <a href="#trial-course">カウンセリング・体験</a>
+            <a href="#bodymake-courses">ボディメイクコース</a>
             <a href="#ticket-courses">回数券コース</a>
           </nav>
         </div>
@@ -122,6 +153,49 @@ export function PricingContent({
               {showCta && <TrialCta />}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="bodymake-courses"
+        className="pricing-block pricing-block--bodymake"
+        aria-labelledby="bodymake-heading"
+      >
+        <div className="container">
+          <header className="pricing-block-header pricing-block-header--center">
+            <p className="pricing-bodymake-eyebrow">パーソナルトレーニングジム TSP</p>
+            <h2 id="bodymake-heading" className="pricing-section-heading">
+              ボディメイクコース
+            </h2>
+            <div className="pricing-block-meta pricing-block-meta--center">
+              <span className="pricing-meta-chip">75分トレーニング + 15分ボディケア</span>
+              <span className="pricing-meta-text">週2回（月8回のトレーニング）</span>
+            </div>
+          </header>
+
+          <div className="pricing-bodymake-grid">
+            {bodymake.map((plan) => (
+              <BodyMakeCard key={`${plan.id}-${plan.name}`} plan={plan} />
+            ))}
+          </div>
+
+          <div className="pricing-campaign pricing-campaign--bodymake">
+            <p className="pricing-campaign-lead">期間限定！！</p>
+            <p className="pricing-campaign-fee">
+              入会費 <s>33,000円</s> → <strong>0円</strong>
+            </p>
+            <ul className="pricing-campaign-notes">
+              <li>全てのコースにアフタードリンクサービス／栄養と食事指導が付いております。</li>
+              <li>特別価格となり、回数券コースよりもお得にレッスンを受けることが可能です。</li>
+              <li>※料金は全て税込です</li>
+            </ul>
+          </div>
+
+          {showCta && (
+            <div className="pricing-content-cta">
+              <TrialCta label="ボディメイクコースについて問い合わせ" />
+            </div>
+          )}
         </div>
       </section>
 

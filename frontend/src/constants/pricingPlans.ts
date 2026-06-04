@@ -1,4 +1,5 @@
 import type { PricingPlan } from "../types";
+import { BODYMAKE_PLANS_FALLBACK } from "./bodymakePlans";
 
 /** 回数券コース（API未取得時のフォールバック・スクショ準拠） */
 export const TICKET_PLANS_FALLBACK: PricingPlan[] = [
@@ -68,6 +69,7 @@ export const ALL_PRICING_PLANS_FALLBACK: PricingPlan[] = [
     position: 0,
     features: [],
   },
+  ...BODYMAKE_PLANS_FALLBACK,
   ...TICKET_PLANS_FALLBACK,
 ];
 
@@ -78,11 +80,7 @@ export function resolveAllPlans(plans: PricingPlan[]): PricingPlan[] {
 
 export function resolveTicketPlans(plans: PricingPlan[]): PricingPlan[] {
   const fromApi = plans
-    .filter(
-      (p) =>
-        p.plan_category === "ticket" ||
-        (p.plan_category !== "trial" && p.price > 0 && p.name.includes("コース"))
-    )
+    .filter((p) => p.plan_category === "ticket")
     .sort((a, b) => a.position - b.position);
 
   if (fromApi.length >= 3) return fromApi;
