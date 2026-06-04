@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
+// GitHub Actions では GITHUB_PAGES が別用途で設定されるため VITE_ プレフィックスを使用
+const base = process.env.VITE_BASE_PATH || "/";
 export default defineConfig({
     plugins: [react()],
-    base: isGitHubPages ? "/personal-trainer-site/" : "/",
+    base,
     build: {
         outDir: "dist",
         sourcemap: false,
