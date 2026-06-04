@@ -11,23 +11,7 @@
   margin-bottom: 1rem;
 }
 
-.results-body {
-  padding-top: 2.5rem;
+.results-page .results-voices {
+  padding-top: 0;
   padding-bottom: 4rem;
-}
-
-.results-grid {
-  display: grid;
-  gap: 2.5rem;
-  max-width: 720px;
-  margin-inline: auto;
-}
-
-@media (min-width: 900px) {
-  .results-grid {
-    max-width: none;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
 }

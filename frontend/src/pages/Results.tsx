@@ -1,22 +1,48 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { api } from "../lib/api";
-import type { Transformation } from "../types";
+import type { Testimonial, Transformation } from "../types";
 import { enrichTransformations, HOME_TRANSFORMATIONS } from "../constants/transformations";
+import { getHomeTestimonials, HOME_TESTIMONIALS } from "../constants/testimonials";
 import { BrandHeading } from "../components/BrandHeading";
-import { TransformationCard } from "../components/TransformationCard";
+import { ResultsVoicesSection } from "../components/ResultsVoicesSection";
 import "./Results.css";
 
+const isStaticSite = import.meta.env.VITE_STATIC_SITE === "true";
+
 export function Results() {
-  const [items, setItems] = useState<Transformation[]>(HOME_TRANSFORMATIONS);
-  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const [results, setResults] = useState<Transformation[]>(
+    isStaticSite ? HOME_TRANSFORMATIONS : []
+  );
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(
+    isStaticSite ? HOME_TESTIMONIALS : []
+  );
+  const [loading, setLoading] = useState(!isStaticSite);
 
   useEffect(() => {
-    api
-      .getTransformations()
-      .then((data) => setItems(enrichTransformations(data)))
-      .catch(() => setItems(HOME_TRANSFORMATIONS))
+    if (isStaticSite) return;
+
+    Promise.all([api.getTransformations(), api.getTestimonials()])
+      .then(([transformations, voices]) => {
+        setResults(enrichTransformations(transformations));
+        setTestimonials(getHomeTestimonials(voices));
+      })
+      .catch(() => {
+        setResults(HOME_TRANSFORMATIONS);
+        setTestimonials(HOME_TESTIMONIALS);
+      })
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const target = document.querySelector(location.hash);
+    if (!target) return;
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [location.hash, loading]);
 
   return (
     <div className="results-page">
@@ -30,19 +56,11 @@ export function Results() {
         </div>
       </section>
 
-      <section className="section results-body">
-        <div className="container">
-          {loading ? (
-            <div className="loading">読み込み中...</div>
-          ) : (
-            <div className="results-grid">
-              {items.map((item) => (
-                <TransformationCard key={item.id} item={item} />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+      {loading ? (
+        <div className="loading section">読み込み中...</div>
+      ) : (
+        <ResultsVoicesSection results={results} testimonials={testimonials} />
+      )}
     </div>
   );
 }

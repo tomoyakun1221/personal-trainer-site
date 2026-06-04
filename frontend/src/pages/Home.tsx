@@ -1,8 +1,3 @@
-import { useEffect, useState } from "react";
-import { api } from "../lib/api";
-import type { Testimonial, Transformation } from "../types";
-import { getHomeTransformations, HOME_TRANSFORMATIONS } from "../constants/transformations";
-import { getHomeTestimonials, HOME_TESTIMONIALS } from "../constants/testimonials";
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import { BrandHeading } from "../components/BrandHeading";
 import { ContactCta } from "../components/ContactCta";
@@ -16,21 +11,6 @@ import "./Home.css";
 
 export function Home() {
   const { setting } = useSiteSetting();
-  const [results, setResults] = useState<Transformation[]>(HOME_TRANSFORMATIONS);
-  const [voices, setVoices] = useState<Testimonial[]>(HOME_TESTIMONIALS);
-
-  useEffect(() => {
-    api
-      .getTransformations()
-      .then((r) => setResults(getHomeTransformations(r)))
-      .catch(() => setResults(HOME_TRANSFORMATIONS));
-
-    api
-      .getTestimonials()
-      .then((v) => setVoices(getHomeTestimonials(v)))
-      .catch(() => setVoices(HOME_TESTIMONIALS));
-  }, []);
-
   const instagramUrl = setting?.instagram_url || INSTAGRAM_URL;
 
   return (
@@ -44,7 +24,7 @@ export function Home() {
 
       <PricingContent plans={[]} homePreview showCta centered />
 
-      <ResultsVoicesSection results={results} testimonials={voices} />
+      <ResultsVoicesSection results={[]} testimonials={[]} homePreview />
 
       <MachineIntroSection />
 
