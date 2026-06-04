@@ -32,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--social-bar-h, 56px);
+  scroll-padding-top: var(--layout-top-h, 112px);
 }
 
 body {

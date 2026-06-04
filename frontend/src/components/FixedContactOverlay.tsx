@@ -11,22 +11,35 @@ export function FixedContactOverlay() {
     if (!shell) return;
 
     const syncHeight = () => {
-      const h = shell.getBoundingClientRect().height;
+      const h = Math.ceil(shell.getBoundingClientRect().height);
+      const headerH =
+        getComputedStyle(document.documentElement).getPropertyValue("--header-h").trim() || "56px";
+
       document.documentElement.style.setProperty("--social-bar-h", `${h}px`);
+      document.documentElement.style.setProperty("--layout-top-h", `calc(${h}px + ${headerH})`);
     };
 
-    syncHeight();
+    const scheduleSync = () => {
+      requestAnimationFrame(syncHeight);
+    };
 
-    const ro = new ResizeObserver(syncHeight);
+    scheduleSync();
+
+    const ro = new ResizeObserver(scheduleSync);
     ro.observe(shell);
 
-    window.addEventListener("resize", syncHeight);
-    window.visualViewport?.addEventListener("resize", syncHeight);
+    window.addEventListener("resize", scheduleSync);
+    window.addEventListener("load", scheduleSync);
+    window.visualViewport?.addEventListener("resize", scheduleSync);
+    window.visualViewport?.addEventListener("scroll", scheduleSync);
+    document.fonts?.ready.then(scheduleSync).catch(() => undefined);
 
     return () => {
       ro.disconnect();
-      window.removeEventListener("resize", syncHeight);
-      window.visualViewport?.removeEventListener("resize", syncHeight);
+      window.removeEventListener("resize", scheduleSync);
+      window.removeEventListener("load", scheduleSync);
+      window.visualViewport?.removeEventListener("resize", scheduleSync);
+      window.visualViewport?.removeEventListener("scroll", scheduleSync);
     };
   }, []);
 

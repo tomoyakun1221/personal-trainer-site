@@ -29,7 +29,15 @@ body {
 
 @media (max-width: 767px) {
   :root {
-    --header-h: 52px;
+    /* JS 反映前の仮値（連絡先バー実測より少し大きめ） */
+    --social-bar-h: 68px;
+    --header-h: 48px;
+    --layout-top-h: calc(var(--social-bar-h) + var(--header-h));
+  }
+
+  /* ヘッダー内のジム名は各ページの見出しと重複するため非表示 */
+  .header-logo-sub {
+    display: none;
   }
 
   .header-logo-mark {
@@ -39,11 +47,6 @@ body {
 
   .header-logo-main {
     font-size: 1.15rem;
-  }
-
-  .header-logo-sub {
-    font-size: 0.55rem;
-    max-width: 9rem;
   }
 
   .social-contact-bar-inner {

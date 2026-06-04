@@ -2,17 +2,19 @@
   position: sticky;
   top: var(--social-bar-h, 56px);
   z-index: 100;
-  height: var(--header-h);
+  min-height: var(--header-h);
+  height: auto;
   background: rgba(10, 15, 20, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: visible;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-h);
+  min-height: var(--header-h);
   gap: 1rem;
 }
 
