@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import type { PricingPlan } from "../types";
 import { ContactCta, TrialCta } from "./ContactCta";
 import { InstagramLink } from "./InstagramLink";
@@ -39,6 +40,42 @@ interface PricingContentProps {
   showPageHeader?: boolean;
   showCta?: boolean;
   centered?: boolean;
+  /** トップ用: 回数券・ボディメイクは料金ページへ誘導 */
+  homePreview?: boolean;
+}
+
+function PricingPageLinkBlock({
+  id,
+  title,
+  lead,
+  to,
+  linkLabel,
+  blockClassName,
+}: {
+  id: string;
+  title: string;
+  lead: string;
+  to: string;
+  linkLabel: string;
+  blockClassName: string;
+}) {
+  return (
+    <section id={id} className={blockClassName} aria-labelledby={`${id}-heading`}>
+      <div className="container">
+        <header className="pricing-block-header pricing-block-header--center">
+          <h2 id={`${id}-heading`} className="pricing-section-heading">
+            {title}
+          </h2>
+          <p className="pricing-block-lead">{lead}</p>
+        </header>
+        <div className="pricing-home-link-cta">
+          <Link to={to} className="btn btn-primary">
+            {linkLabel}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function BodyMakeCard({ plan }: { plan: PricingPlan }) {
@@ -117,6 +154,7 @@ export function PricingContent({
   showPageHeader = false,
   showCta = true,
   centered = false,
+  homePreview = false,
 }: PricingContentProps) {
   const bodymake = resolveBodymakePlans(plans);
   const tickets = resolveTicketPlans(plans);
@@ -171,98 +209,121 @@ export function PricingContent({
         </div>
       </section>
 
-      <section
-        id="ticket-courses"
-        className="pricing-block pricing-block--tickets"
-        aria-labelledby="tickets-heading"
-      >
-        <div className="container">
-          <header className="pricing-block-header pricing-block-header--center">
-            <h2 id="tickets-heading" className="pricing-section-heading">
-              回数券コース
-            </h2>
-            <p className="pricing-block-lead">
-              週1でトレーニングしたい方へ。まとめ買いでお得にご利用いただけます。
-            </p>
-          </header>
+      {homePreview ? (
+        <>
+          <PricingPageLinkBlock
+            id="ticket-courses"
+            title="回数券コース"
+            lead="週1でトレーニングしたい方へ。まとめ買いでお得にご利用いただけます。"
+            to="/pricing#ticket-courses"
+            linkLabel="回数券コースの料金・詳細を見る"
+            blockClassName="pricing-block pricing-block--tickets"
+          />
+          <PricingPageLinkBlock
+            id="bodymake-courses"
+            title="ボディメイクコース"
+            lead="週2回（月8回のトレーニング）で、目標に合わせたボディメイクをサポートします。"
+            to="/pricing#bodymake-courses"
+            linkLabel="ボディメイクコースの料金・詳細を見る"
+            blockClassName="pricing-block pricing-block--bodymake"
+          />
+        </>
+      ) : (
+        <>
+          <section
+            id="ticket-courses"
+            className="pricing-block pricing-block--tickets"
+            aria-labelledby="tickets-heading"
+          >
+            <div className="container">
+              <header className="pricing-block-header pricing-block-header--center">
+                <h2 id="tickets-heading" className="pricing-section-heading">
+                  回数券コース
+                </h2>
+                <p className="pricing-block-lead">
+                  週1でトレーニングしたい方へ。まとめ買いでお得にご利用いただけます。
+                </p>
+              </header>
 
-          <div className="pricing-tickets-grid">
-            {tickets.map((plan) => (
-              <TicketCard key={`${plan.id}-${plan.name}`} plan={plan} />
-            ))}
-          </div>
+              <div className="pricing-tickets-grid">
+                {tickets.map((plan) => (
+                  <TicketCard key={`${plan.id}-${plan.name}`} plan={plan} />
+                ))}
+              </div>
 
-          <div className="pricing-campaign">
-            <p className="pricing-campaign-lead">期間限定！！</p>
-            <p className="pricing-campaign-fee">
-              入会費 <s>33,000円</s> → <strong>0円</strong>
-            </p>
-            <ul className="pricing-campaign-notes">
-              <li>※各コース、回数券の有効期限は４カ月間となります。</li>
-              <li>※料金は全て税込です</li>
-            </ul>
-          </div>
+              <div className="pricing-campaign">
+                <p className="pricing-campaign-lead">期間限定！！</p>
+                <p className="pricing-campaign-fee">
+                  入会費 <s>33,000円</s> → <strong>0円</strong>
+                </p>
+                <ul className="pricing-campaign-notes">
+                  <li>※各コース、回数券の有効期限は４カ月間となります。</li>
+                  <li>※料金は全て税込です</li>
+                </ul>
+              </div>
 
-          {showCta && (
-            <div className="pricing-content-cta">
-              <PricingCtaRow>
-                <ContactCta
-                  label="回数券コースについての問い合わせ"
-                  subject="回数券コースについての問い合わせ"
-                  className="btn btn-primary"
-                />
-              </PricingCtaRow>
+              {showCta && (
+                <div className="pricing-content-cta">
+                  <PricingCtaRow>
+                    <ContactCta
+                      label="回数券コースについての問い合わせ"
+                      subject="回数券コースについての問い合わせ"
+                      className="btn btn-primary"
+                    />
+                  </PricingCtaRow>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      </section>
+          </section>
 
-      <section
-        id="bodymake-courses"
-        className="pricing-block pricing-block--bodymake"
-        aria-labelledby="bodymake-heading"
-      >
-        <div className="container">
-          <header className="pricing-block-header pricing-block-header--center">
-            <h2 id="bodymake-heading" className="pricing-section-heading">
-              ボディメイクコース
-            </h2>
-            <div className="pricing-block-meta pricing-block-meta--center">
-              <span className="pricing-meta-chip">週2回（月8回のトレーニング）</span>
+          <section
+            id="bodymake-courses"
+            className="pricing-block pricing-block--bodymake"
+            aria-labelledby="bodymake-heading"
+          >
+            <div className="container">
+              <header className="pricing-block-header pricing-block-header--center">
+                <h2 id="bodymake-heading" className="pricing-section-heading">
+                  ボディメイクコース
+                </h2>
+                <div className="pricing-block-meta pricing-block-meta--center">
+                  <span className="pricing-meta-chip">週2回（月8回のトレーニング）</span>
+                </div>
+              </header>
+
+              <div className="pricing-bodymake-grid">
+                {bodymake.map((plan) => (
+                  <BodyMakeCard key={`${plan.id}-${plan.name}`} plan={plan} />
+                ))}
+              </div>
+
+              <div className="pricing-campaign pricing-campaign--bodymake">
+                <p className="pricing-campaign-lead">期間限定！！</p>
+                <p className="pricing-campaign-fee">
+                  入会費 <s>33,000円</s> → <strong>0円</strong>
+                </p>
+                <ul className="pricing-campaign-notes">
+                  <li>全てのコースにアフタードリンクサービス／栄養と食事指導が付いております。</li>
+                  <li>特別価格となり、回数券コースよりもお得にレッスンを受けることが可能です。</li>
+                  <li>※料金は全て税込です</li>
+                </ul>
+              </div>
+
+              {showCta && (
+                <div className="pricing-content-cta">
+                  <PricingCtaRow>
+                    <ContactCta
+                      label="ボディメイクコースについて問い合わせ"
+                      subject="ボディメイクコースについて問い合わせ"
+                      className="btn btn-primary"
+                    />
+                  </PricingCtaRow>
+                </div>
+              )}
             </div>
-          </header>
-
-          <div className="pricing-bodymake-grid">
-            {bodymake.map((plan) => (
-              <BodyMakeCard key={`${plan.id}-${plan.name}`} plan={plan} />
-            ))}
-          </div>
-
-          <div className="pricing-campaign pricing-campaign--bodymake">
-            <p className="pricing-campaign-lead">期間限定！！</p>
-            <p className="pricing-campaign-fee">
-              入会費 <s>33,000円</s> → <strong>0円</strong>
-            </p>
-            <ul className="pricing-campaign-notes">
-              <li>全てのコースにアフタードリンクサービス／栄養と食事指導が付いております。</li>
-              <li>特別価格となり、回数券コースよりもお得にレッスンを受けることが可能です。</li>
-              <li>※料金は全て税込です</li>
-            </ul>
-          </div>
-
-          {showCta && (
-            <div className="pricing-content-cta">
-              <PricingCtaRow>
-                <ContactCta
-                  label="ボディメイクコースについて問い合わせ"
-                  subject="ボディメイクコースについて問い合わせ"
-                  className="btn btn-primary"
-                />
-              </PricingCtaRow>
-            </div>
-          )}
-        </div>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   );
 }

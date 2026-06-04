@@ -507,6 +507,15 @@
   line-height: 1.7;
 }
 
+.pricing-home-link-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.pricing-home-link-cta .btn {
+  min-width: min(100%, 320px);
+}
+
 .pricing-content-cta {
   margin-top: 2rem;
   text-align: center;
