@@ -1,6 +1,6 @@
 .header {
   position: sticky;
-  top: calc(var(--social-bar-h) + env(safe-area-inset-top, 0px));
+  top: var(--social-bar-h, 56px);
   z-index: 100;
   height: var(--header-h);
   background: rgba(10, 15, 20, 0.95);

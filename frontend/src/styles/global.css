@@ -32,10 +32,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--social-bar-h, 56px);
 }
 
 body {
   margin: 0;
+  padding-top: 0;
   font-family: "Noto Sans JP", system-ui, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);

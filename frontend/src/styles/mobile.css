@@ -27,11 +27,9 @@ body {
   font-size: 0.9rem;
 }
 
-/* 固定ヘッダー＋連絡先バー */
 @media (max-width: 767px) {
   :root {
     --header-h: 52px;
-    --social-bar-h: 56px;
   }
 
   .header-logo-mark {
@@ -48,11 +46,7 @@ body {
     max-width: 9rem;
   }
 
-  :root {
-    --social-bar-h: 58px;
-  }
-
-  .social-contact-bar--fixed .social-contact-bar-inner {
+  .social-contact-bar-inner {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     width: min(100% - 1.25rem, var(--max-width));

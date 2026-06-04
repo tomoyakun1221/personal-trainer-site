@@ -4,13 +4,12 @@ import "./SocialContactBar.css";
 interface SocialContactBarProps {
   variant?: "top" | "bottom";
   compact?: boolean;
-  fixed?: boolean;
 }
 
-export function SocialContactBar({ variant = "top", compact = false, fixed = false }: SocialContactBarProps) {
+export function SocialContactBar({ variant = "top", compact = false }: SocialContactBarProps) {
   return (
     <div
-      className={`social-contact-bar social-contact-bar--${variant} ${compact ? "social-contact-bar--compact" : ""} ${fixed ? "social-contact-bar--fixed" : ""}`}
+      className={`social-contact-bar social-contact-bar--${variant} ${compact ? "social-contact-bar--compact" : ""}`}
       role="navigation"
       aria-label="連絡先"
     >
