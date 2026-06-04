@@ -4,22 +4,21 @@ import { Footer } from "./Footer";
 import { SocialContactBar } from "./SocialContactBar";
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import "./Layout.css";
-import "./LayoutTop.css";
 
 export function Layout() {
   const { setting } = useSiteSetting();
 
   return (
     <div className="layout">
-      <div className="layout-top">
-        <SocialContactBar variant="top" compact />
+      <SocialContactBar variant="top" compact fixed />
+      <div className="layout-below-contact">
         <Header />
+        <main className="layout-main">
+          <Outlet />
+        </main>
+        <SocialContactBar variant="bottom" />
+        <Footer setting={setting} />
       </div>
-      <main className="layout-main">
-        <Outlet />
-      </main>
-      <SocialContactBar variant="bottom" />
-      <Footer setting={setting} />
     </div>
   );
 }

@@ -3,6 +3,18 @@
   background: linear-gradient(90deg, rgba(34, 211, 238, 0.08) 0%, rgba(10, 15, 20, 0.98) 50%, rgba(251, 146, 60, 0.08) 100%);
 }
 
+/* スクロールしても常に画面上部に表示 */
+.social-contact-bar--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: #0a0f14;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
 .social-contact-bar--bottom {
   border-bottom: none;
   border-top: 1px solid rgba(255, 255, 255, 0.06);

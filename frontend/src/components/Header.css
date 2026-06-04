@@ -1,5 +1,6 @@
 .header {
   position: relative;
+  z-index: 50;
   height: var(--header-h);
   background: rgba(10, 15, 20, 0.95);
   backdrop-filter: blur(12px);

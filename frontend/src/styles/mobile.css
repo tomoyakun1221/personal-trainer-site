@@ -45,12 +45,7 @@ body {
     max-width: 9rem;
   }
 
-  .layout-top {
-    max-height: calc(var(--layout-top-h) + env(safe-area-inset-top));
-    padding-top: env(safe-area-inset-top);
-  }
-
-  .social-contact-bar-inner {
+  .social-contact-bar--fixed .social-contact-bar-inner {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
