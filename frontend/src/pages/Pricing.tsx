@@ -36,5 +36,5 @@ export function Pricing() {
     return <div className="loading section">読み込み中...</div>;
   }
 
-  return <PricingContent plans={plans} showPageHeader showCta />;
+  return <PricingContent plans={plans} showPageHeader showCta showTrial={false} />;
 }

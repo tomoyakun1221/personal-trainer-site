@@ -42,6 +42,8 @@ interface PricingContentProps {
   centered?: boolean;
   /** トップ用: 回数券・ボディメイクは料金ページへ誘導 */
   homePreview?: boolean;
+  /** カウンセリング／体験トレーニングセクション */
+  showTrial?: boolean;
 }
 
 function PricingPageLinkBlock({
@@ -155,6 +157,7 @@ export function PricingContent({
   showCta = true,
   centered = false,
   homePreview = false,
+  showTrial = true,
 }: PricingContentProps) {
   const bodymake = resolveBodymakePlans(plans);
   const tickets = resolveTicketPlans(plans);
@@ -166,48 +169,50 @@ export function PricingContent({
           <BrandHeading align="center" />
           <p className="pricing-content-page-lead">料金はすべて税込表示です</p>
           <nav className="pricing-content-jump" aria-label="料金セクション">
-            <a href="#trial-course">カウンセリング・体験</a>
+            {showTrial && <a href="#trial-course">カウンセリング・体験</a>}
             <a href="#ticket-courses">回数券コース</a>
             <a href="#bodymake-courses">ボディメイクコース</a>
           </nav>
         </div>
       )}
 
-      <section
-        id="trial-course"
-        className="pricing-block pricing-block--tickets"
-        aria-labelledby="trial-heading"
-      >
-        <div className="container">
-          <header className="pricing-block-header pricing-block-header--center">
-            <h2 id="trial-heading" className="pricing-section-heading">
-              カウンセリング／体験トレーニング
-            </h2>
-          </header>
+      {showTrial && (
+        <section
+          id="trial-course"
+          className="pricing-block pricing-block--tickets"
+          aria-labelledby="trial-heading"
+        >
+          <div className="container">
+            <header className="pricing-block-header pricing-block-header--center">
+              <h2 id="trial-heading" className="pricing-section-heading">
+                カウンセリング／体験トレーニング
+              </h2>
+            </header>
 
-          <div className="pricing-trial-card">
-            <ul className="pricing-trial-list">
-              {TRIAL_POINTS.map((point) => (
-                <li key={point.num} className="pricing-trial-item">
-                  <div className="pricing-trial-item-head">
-                    <span className="pricing-trial-num">{point.num}</span>
-                    <h3>{point.title}</h3>
-                  </div>
-                  <p>{point.body}</p>
-                </li>
-              ))}
-            </ul>
-            <div className="pricing-trial-action">
-              <p className="pricing-trial-free-label">※無料で実施致します！！</p>
-              {showCta && (
-                <PricingCtaRow>
-                  <TrialCta />
-                </PricingCtaRow>
-              )}
+            <div className="pricing-trial-card">
+              <ul className="pricing-trial-list">
+                {TRIAL_POINTS.map((point) => (
+                  <li key={point.num} className="pricing-trial-item">
+                    <div className="pricing-trial-item-head">
+                      <span className="pricing-trial-num">{point.num}</span>
+                      <h3>{point.title}</h3>
+                    </div>
+                    <p>{point.body}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="pricing-trial-action">
+                <p className="pricing-trial-free-label">※無料で実施致します！！</p>
+                {showCta && (
+                  <PricingCtaRow>
+                    <TrialCta />
+                  </PricingCtaRow>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {homePreview ? (
         <>
