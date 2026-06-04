@@ -1,8 +1,5 @@
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import { BrandHeading } from "../components/BrandHeading";
-import { ContactCta } from "../components/ContactCta";
-import { InstagramLink } from "../components/InstagramLink";
-import { CONTACT_EMAIL } from "../constants/contact";
 import {
   PROFILE_BIRTHDATE,
   PROFILE_CLOSING,
@@ -23,7 +20,6 @@ export function Profile() {
   if (loading && !setting) return <div className="loading">読み込み中...</div>;
 
   const profileImage = setting?.profile_image_url || PROFILE_IMAGE;
-  const instagramUrl = setting?.instagram_url;
 
   return (
     <section className="section profile-page">
@@ -47,24 +43,13 @@ export function Profile() {
               ))}
             </ul>
 
-            <div className="profile-meta">
-              <p>
-                <strong>Email:</strong>{" "}
-                <a href={`mailto:${setting?.email || CONTACT_EMAIL}`}>
-                  {setting?.email || CONTACT_EMAIL}
-                </a>
-              </p>
-              {setting?.location && (
+            {setting?.location && (
+              <div className="profile-meta">
                 <p>
                   <strong>所在地:</strong> {setting.location}
                 </p>
-              )}
-            </div>
-
-            <div className="profile-social">
-              <ContactCta label="ご相談・お問い合わせ" subject="プロフィールページからのお問い合わせ" />
-              <InstagramLink url={instagramUrl} />
-            </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -96,10 +81,6 @@ export function Profile() {
               ))}
             </ul>
             <p className="profile-closing">{PROFILE_CLOSING}</p>
-            <div className="profile-social">
-              <ContactCta label="メールで相談する" />
-              <InstagramLink url={instagramUrl} />
-            </div>
           </div>
         </div>
 
