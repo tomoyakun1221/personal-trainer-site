@@ -1,4 +1,6 @@
-export const PROFILE_IMAGE = "/images/trainer_profile.png";
+import { assetPath } from "../lib/assetPath";
+
+export const PROFILE_IMAGE = assetPath("images/trainer_profile.png");
 
 export const PROFILE_NAME = "天野智也";
 

@@ -64,9 +64,18 @@ sh scripts/deploy-local-prod.sh
 
 同じネットワークのスマホからは `http://<PCのIP>:8080` で確認できます。
 
-## インターネット公開（デプロイ）
+## インターネット公開（無料・GitHub Pages）
 
-### 方法 A: Fly.io（推奨）
+**https://tomoyakun1221.github.io/personal-trainer-site/**
+
+1. GitHub リポジトリ **Settings → Pages → Source: GitHub Actions**
+2. `main` に push すると自動デプロイ（`.github/workflows/deploy-pages.yml`）
+
+詳細: [DEPLOY_GITHUB_PAGES.md](./DEPLOY_GITHUB_PAGES.md)
+
+※ GitHub Pages はフロントのみ（管理画面・API はローカル Docker で利用）
+
+### 方法 A: Fly.io
 
 1. [Fly.io](https://fly.io) でアカウント作成
 2. [flyctl](https://fly.io/docs/hands-on/install-flyctl/) をインストール

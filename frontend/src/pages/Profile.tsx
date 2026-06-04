@@ -20,7 +20,7 @@ import "./Profile.css";
 export function Profile() {
   const { setting, loading } = useSiteSetting();
 
-  if (loading) return <div className="loading">読み込み中...</div>;
+  if (loading && !setting) return <div className="loading">読み込み中...</div>;
 
   const profileImage = setting?.profile_image_url || PROFILE_IMAGE;
   const instagramUrl = setting?.instagram_url;

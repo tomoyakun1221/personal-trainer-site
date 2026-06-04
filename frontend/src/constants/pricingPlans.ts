@@ -53,6 +53,29 @@ export const TICKET_PLANS_FALLBACK: PricingPlan[] = [
   },
 ];
 
+/** GitHub Pages 等・APIなし運用時の全料金プラン */
+export const ALL_PRICING_PLANS_FALLBACK: PricingPlan[] = [
+  {
+    id: 0,
+    name: "カウンセリング／体験トレーニング",
+    price: 0,
+    period: "回",
+    plan_category: "trial",
+    course_breakdown: null,
+    description: "※無料で実施致します！！",
+    target_audience: null,
+    featured: true,
+    position: 0,
+    features: [],
+  },
+  ...TICKET_PLANS_FALLBACK,
+];
+
+export function resolveAllPlans(plans: PricingPlan[]): PricingPlan[] {
+  if (plans.length === 0) return ALL_PRICING_PLANS_FALLBACK;
+  return plans;
+}
+
 export function resolveTicketPlans(plans: PricingPlan[]): PricingPlan[] {
   const fromApi = plans
     .filter(

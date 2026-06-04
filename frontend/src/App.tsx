@@ -13,9 +13,12 @@ import { AdminPricing } from "./pages/admin/AdminPricing";
 import { AdminResults } from "./pages/admin/AdminResults";
 import { AdminTestimonials } from "./pages/admin/AdminTestimonials";
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
+const isStaticSite = import.meta.env.VITE_STATIC_SITE === "true";
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename || undefined}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -24,14 +27,18 @@ export default function App() {
           <Route path="results" element={<Results />} />
           <Route path="about" element={<About />} />
         </Route>
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="site" element={<AdminSite />} />
-          <Route path="pricing" element={<AdminPricing />} />
-          <Route path="results" element={<AdminResults />} />
-          <Route path="testimonials" element={<AdminTestimonials />} />
-        </Route>
+        {!isStaticSite && (
+          <>
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="site" element={<AdminSite />} />
+              <Route path="pricing" element={<AdminPricing />} />
+              <Route path="results" element={<AdminResults />} />
+              <Route path="testimonials" element={<AdminTestimonials />} />
+            </Route>
+          </>
+        )}
         <Route path="/contact" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

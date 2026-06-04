@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import type { PricingPlan } from "../types";
+import { ALL_PRICING_PLANS_FALLBACK } from "../constants/pricingPlans";
 import { PricingContent } from "../components/PricingContent";
 
+const isStaticSite = import.meta.env.VITE_STATIC_SITE === "true";
+
 export function Pricing() {
-  const [plans, setPlans] = useState<PricingPlan[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [plans, setPlans] = useState<PricingPlan[]>(
+    isStaticSite ? ALL_PRICING_PLANS_FALLBACK : []
+  );
+  const [loading, setLoading] = useState(!isStaticSite);
 
   useEffect(() => {
-    api.getPricingPlans().then(setPlans).finally(() => setLoading(false));
+    if (isStaticSite) return;
+    api
+      .getPricingPlans()
+      .then(setPlans)
+      .catch(() => setPlans(ALL_PRICING_PLANS_FALLBACK))
+      .finally(() => setLoading(false));
   }, []);
 
   if (loading) {

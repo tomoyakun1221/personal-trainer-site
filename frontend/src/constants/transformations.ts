@@ -1,8 +1,9 @@
 import type { Transformation } from "../types";
+import { assetPath } from "../lib/assetPath";
 
 export const TRANSFORMATION_IMAGES = {
-  female: "/images/transformation_female.png",
-  male: "/images/transformation_male.png",
+  female: assetPath("images/transformation_female.png"),
+  male: assetPath("images/transformation_male.png"),
 } as const;
 
 export const HOME_TRANSFORMATIONS: Transformation[] = [

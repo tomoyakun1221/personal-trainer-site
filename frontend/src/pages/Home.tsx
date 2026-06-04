@@ -3,6 +3,7 @@ import { api } from "../lib/api";
 import type { PricingPlan, Testimonial, Transformation } from "../types";
 import { getHomeTransformations, HOME_TRANSFORMATIONS } from "../constants/transformations";
 import { getHomeTestimonials, HOME_TESTIMONIALS } from "../constants/testimonials";
+import { ALL_PRICING_PLANS_FALLBACK } from "../constants/pricingPlans";
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import { BrandHeading } from "../components/BrandHeading";
 import { ContactCta } from "../components/ContactCta";
@@ -14,9 +15,13 @@ import { MachineIntroSection } from "../components/MachineIntroSection";
 import { GYM_LABEL } from "../constants/brand";
 import "./Home.css";
 
+const isStaticSite = import.meta.env.VITE_STATIC_SITE === "true";
+
 export function Home() {
   const { setting } = useSiteSetting();
-  const [plans, setPlans] = useState<PricingPlan[]>([]);
+  const [plans, setPlans] = useState<PricingPlan[]>(
+    isStaticSite ? ALL_PRICING_PLANS_FALLBACK : []
+  );
   const [results, setResults] = useState<Transformation[]>(HOME_TRANSFORMATIONS);
   const [voices, setVoices] = useState<Testimonial[]>(HOME_TESTIMONIALS);
 
@@ -26,7 +31,10 @@ export function Home() {
       .then((r) => setResults(getHomeTransformations(r)))
       .catch(() => setResults(HOME_TRANSFORMATIONS));
 
-    api.getPricingPlans().then(setPlans).catch(() => {});
+    api
+      .getPricingPlans()
+      .then(setPlans)
+      .catch(() => setPlans(ALL_PRICING_PLANS_FALLBACK));
 
     api
       .getTestimonials()
