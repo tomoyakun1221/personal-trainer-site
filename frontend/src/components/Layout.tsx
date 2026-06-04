@@ -2,18 +2,17 @@ import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { SocialContactBar } from "./SocialContactBar";
-import { FixedContactBar } from "./FixedContactBar";
-import { useLayoutTopHeights } from "../hooks/useLayoutTopHeights";
+import { LayoutTopSpacer } from "./LayoutTopSpacer";
+import "./LayoutTopSpacer.css";
 import { useSiteSetting } from "../hooks/useSiteSetting";
 import "./Layout.css";
 
 export function Layout() {
-  useLayoutTopHeights();
   const { setting } = useSiteSetting();
 
   return (
     <div className="layout">
-      <FixedContactBar />
+      <LayoutTopSpacer />
       <Header />
       <main className="layout-main">
         <Outlet />

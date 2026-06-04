@@ -12,10 +12,11 @@ export function useLayoutTopHeights() {
       if (!shell || !header) return false;
       const socialH = Math.ceil(shell.getBoundingClientRect().height);
       const headerH = Math.ceil(header.getBoundingClientRect().height);
+      const gap = 4;
 
       document.documentElement.style.setProperty("--social-bar-h", `${socialH}px`);
       document.documentElement.style.setProperty("--header-h", `${headerH}px`);
-      document.documentElement.style.setProperty("--layout-top-h", `${socialH + headerH}px`);
+      document.documentElement.style.setProperty("--layout-top-h", `${socialH + headerH + gap}px`);
       return true;
     };
 

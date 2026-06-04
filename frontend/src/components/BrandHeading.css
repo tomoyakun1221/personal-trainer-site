@@ -1,12 +1,6 @@
 .brand-heading {
-  margin-bottom: 1.5rem;
-  scroll-margin-top: var(--layout-top-h, 112px);
-}
-
-@media (max-width: 767px) {
-  .brand-heading {
-    margin-top: 0.25rem;
-  }
+  margin: 0 0 1.5rem;
+  scroll-margin-top: var(--layout-top-h, 120px);
 }
 
 .brand-heading--center {

@@ -1,8 +1,0 @@
-/* 固定連絡先バーの高さ分（--social-bar-h は FixedContactOverlay が JS で更新） */
-.layout-contact-spacer {
-  flex-shrink: 0;
-  width: 100%;
-  min-height: var(--social-bar-h, 56px);
-  height: var(--social-bar-h, 56px);
-  pointer-events: none;
-}

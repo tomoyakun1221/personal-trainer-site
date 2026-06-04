@@ -1,13 +1,15 @@
 .header {
-  position: sticky;
-  top: var(--social-bar-h, 56px);
+  position: fixed;
+  top: var(--social-bar-h, 60px);
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   min-height: var(--header-h);
   height: auto;
-  background: rgba(10, 15, 20, 0.95);
+  background: rgba(10, 15, 20, 0.98);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  overflow: visible;
 }
 
 .header-inner {

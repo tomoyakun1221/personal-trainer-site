@@ -32,7 +32,7 @@ body {
     /* JS 反映前の仮値（連絡先バー実測より少し大きめ） */
     --social-bar-h: 68px;
     --header-h: 48px;
-    --layout-top-h: calc(var(--social-bar-h) + var(--header-h));
+    --layout-top-h: 124px;
   }
 
   .header-logo-mark {
