@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import type { Transformation } from "../types";
 import { enrichTransformations, HOME_TRANSFORMATIONS } from "../constants/transformations";
+import { BrandHeading } from "../components/BrandHeading";
 import { TransformationCard } from "../components/TransformationCard";
 import "./Results.css";
 
@@ -21,7 +22,7 @@ export function Results() {
     <div className="results-page">
       <section className="section results-hero">
         <div className="container">
-          <p className="results-eyebrow">TSP</p>
+          <BrandHeading align="center" />
           <h1 className="section-title">ビフォーアフター実績</h1>
           <p className="section-subtitle">
             お客様の許可を得た範囲で掲載しています。個人差があり、結果を保証するものではありません。
