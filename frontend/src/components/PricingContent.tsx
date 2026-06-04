@@ -118,8 +118,8 @@ export function PricingContent({
           <p className="pricing-content-page-lead">料金はすべて税込表示です</p>
           <nav className="pricing-content-jump" aria-label="料金セクション">
             <a href="#trial-course">カウンセリング・体験</a>
-            <a href="#bodymake-courses">ボディメイクコース</a>
             <a href="#ticket-courses">回数券コース</a>
+            <a href="#bodymake-courses">ボディメイクコース</a>
           </nav>
         </div>
       )}
@@ -153,6 +153,46 @@ export function PricingContent({
               {showCta && <TrialCta />}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="ticket-courses"
+        className="pricing-block pricing-block--tickets"
+        aria-labelledby="tickets-heading"
+      >
+        <div className="container">
+          <header className="pricing-block-header pricing-block-header--center">
+            <h2 id="tickets-heading" className="pricing-section-heading">
+              回数券コース
+            </h2>
+            <p className="pricing-block-lead">
+              週1でトレーニングしたい方へ。まとめ買いでお得にご利用いただけます。
+            </p>
+          </header>
+
+          <div className="pricing-tickets-grid">
+            {tickets.map((plan) => (
+              <TicketCard key={`${plan.id}-${plan.name}`} plan={plan} />
+            ))}
+          </div>
+
+          <div className="pricing-campaign">
+            <p className="pricing-campaign-lead">期間限定！！</p>
+            <p className="pricing-campaign-fee">
+              入会費 <s>33,000円</s> → <strong>0円</strong>
+            </p>
+            <ul className="pricing-campaign-notes">
+              <li>※各コース、回数券の有効期限は４カ月間となります。</li>
+              <li>※料金は全て税込です</li>
+            </ul>
+          </div>
+
+          {showCta && (
+            <div className="pricing-content-cta">
+              <TrialCta label="メールで体験予約・お問い合わせ" />
+            </div>
+          )}
         </div>
       </section>
 
@@ -194,46 +234,6 @@ export function PricingContent({
           {showCta && (
             <div className="pricing-content-cta">
               <TrialCta label="ボディメイクコースについて問い合わせ" />
-            </div>
-          )}
-        </div>
-      </section>
-
-      <section
-        id="ticket-courses"
-        className="pricing-block pricing-block--tickets"
-        aria-labelledby="tickets-heading"
-      >
-        <div className="container">
-          <header className="pricing-block-header pricing-block-header--center">
-            <h2 id="tickets-heading" className="pricing-section-heading">
-              回数券コース
-            </h2>
-            <p className="pricing-block-lead">
-              週1でトレーニングしたい方へ。まとめ買いでお得にご利用いただけます。
-            </p>
-          </header>
-
-          <div className="pricing-tickets-grid">
-            {tickets.map((plan) => (
-              <TicketCard key={`${plan.id}-${plan.name}`} plan={plan} />
-            ))}
-          </div>
-
-          <div className="pricing-campaign">
-            <p className="pricing-campaign-lead">期間限定！！</p>
-            <p className="pricing-campaign-fee">
-              入会費 <s>33,000円</s> → <strong>0円</strong>
-            </p>
-            <ul className="pricing-campaign-notes">
-              <li>※各コース、回数券の有効期限は４カ月間となります。</li>
-              <li>※料金は全て税込です</li>
-            </ul>
-          </div>
-
-          {showCta && (
-            <div className="pricing-content-cta">
-              <TrialCta label="メールで体験予約・お問い合わせ" />
             </div>
           )}
         </div>

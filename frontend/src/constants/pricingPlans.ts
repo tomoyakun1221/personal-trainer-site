@@ -69,8 +69,8 @@ export const ALL_PRICING_PLANS_FALLBACK: PricingPlan[] = [
     position: 0,
     features: [],
   },
-  ...BODYMAKE_PLANS_FALLBACK,
   ...TICKET_PLANS_FALLBACK,
+  ...BODYMAKE_PLANS_FALLBACK,
 ];
 
 export function resolveAllPlans(plans: PricingPlan[]): PricingPlan[] {
