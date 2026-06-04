@@ -12,10 +12,15 @@
   --radius-lg: 20px;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   --max-width: 1100px;
-  /* JS 反映前の仮値（実測よりやや大きめ） */
   --header-h: 56px;
   --social-bar-h: 60px;
-  --layout-top-h: 120px;
+  --layout-top-h: calc(var(--social-bar-h) + var(--header-h));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-h: 60px;
+  }
 }
 
 *,

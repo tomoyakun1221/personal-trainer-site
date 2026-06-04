@@ -29,10 +29,8 @@ body {
 
 @media (max-width: 767px) {
   :root {
-    /* JS 反映前の仮値（連絡先バー実測より少し大きめ） */
     --social-bar-h: 68px;
-    --header-h: 48px;
-    --layout-top-h: 124px;
+    --header-h: 52px;
   }
 
   .header-logo-mark {

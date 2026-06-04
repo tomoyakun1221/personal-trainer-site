@@ -1,6 +1,0 @@
-.layout-top-spacer {
-  flex-shrink: 0;
-  width: 100%;
-  height: var(--layout-top-h, 120px);
-  min-height: var(--layout-top-h, 120px);
-}
