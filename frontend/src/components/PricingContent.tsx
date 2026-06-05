@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { PricingPlan } from "../types";
-import { ContactCta, TrialCta } from "./ContactCta";
+import { TrialCta } from "./ContactCta";
+import { ContactFormLink } from "./ContactFormLink";
 import { InstagramLink } from "./InstagramLink";
 import { resolveBodymakePlans } from "../constants/bodymakePlans";
 import { resolveTicketPlans } from "../constants/pricingPlans";
@@ -270,9 +271,9 @@ export function PricingContent({
               {showCta && (
                 <div className="pricing-content-cta">
                   <PricingCtaRow>
-                    <ContactCta
+                    <ContactFormLink
                       label="回数券コースについての問い合わせ"
-                      subject="回数券コースについての問い合わせ"
+                      inquiryType="ticket"
                       className="btn btn-primary"
                     />
                   </PricingCtaRow>
@@ -317,9 +318,9 @@ export function PricingContent({
               {showCta && (
                 <div className="pricing-content-cta">
                   <PricingCtaRow>
-                    <ContactCta
+                    <ContactFormLink
                       label="ボディメイクコースについて問い合わせ"
-                      subject="ボディメイクコースについて問い合わせ"
+                      inquiryType="bodymake"
                       className="btn btn-primary"
                     />
                   </PricingCtaRow>

@@ -1,7 +1,12 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { BrandHeading } from "../components/BrandHeading";
 import { InstagramLink } from "../components/InstagramLink";
-import { CONTACT_INQUIRY_OPTIONS, type ContactInquiryType } from "../constants/contactForm";
+import {
+  CONTACT_INQUIRY_OPTIONS,
+  parseInquiryFromSearch,
+  type ContactInquiryType,
+} from "../constants/contactForm";
 import { submitContactForm, usesWeb3Forms } from "../lib/submitContactForm";
 import "./Contact.css";
 
@@ -15,9 +20,17 @@ const initialForm = {
 };
 
 export function Contact() {
+  const [searchParams] = useSearchParams();
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const preset = parseInquiryFromSearch(searchParams.toString());
+    if (preset) {
+      setForm((prev) => ({ ...prev, inquiryType: preset }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
