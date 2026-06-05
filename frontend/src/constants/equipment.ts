@@ -118,20 +118,6 @@ export const EQUIPMENT_ITEMS: EquipmentItem[] = [
     accent: "mint",
   },
   {
-    id: "theragun",
-    title: "最高級マッサージガン",
-    subtitle: "THERAGUN による本格ボディケア",
-    image: assetPath("images/equipment-theragun.png"),
-    imageAlt: "THERAGUN PRO マッサージガン",
-    imageFit: "contain",
-    paragraphs: [
-      "トレーニング後のケアにも、TSPでは業界でも評価の高いパーカッションガン（マッサージガン）を使用。",
-      "筋肉のこわばりをほぐし、回復をサポート。ハードな練習のあとも、次のセッションに備えやすい身体づくりをサポートします。",
-    ],
-    highlights: ["ボディケア", "リカバリー", "トレーニング後"],
-    accent: "cyan",
-  },
-  {
     id: "punching",
     title: "サンドバッグ＆ボクシング",
     subtitle: "気持ちよい汗と、全身を使ったコンディショニング",
@@ -144,5 +130,19 @@ export const EQUIPMENT_ITEMS: EquipmentItem[] = [
     ],
     highlights: ["全身運動", "ダイエット", "ストレス解消"],
     accent: "orange",
+  },
+  {
+    id: "theragun",
+    title: "最高級マッサージガン",
+    subtitle: "THERAGUN による本格ボディケア",
+    image: assetPath("images/equipment-theragun.png"),
+    imageAlt: "THERAGUN PRO マッサージガン",
+    imageFit: "contain",
+    paragraphs: [
+      "トレーニング後のケアにも、TSPでは業界でも評価の高いパーカッションガン（マッサージガン）を使用。",
+      "筋肉のこわばりをほぐし、回復をサポート。ハードな練習のあとも、次のセッションに備えやすい身体づくりをサポートします。",
+    ],
+    highlights: ["ボディケア", "リカバリー", "トレーニング後"],
+    accent: "cyan",
   },
 ];
