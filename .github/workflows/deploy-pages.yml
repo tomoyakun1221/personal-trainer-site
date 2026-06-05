@@ -32,7 +32,7 @@ jobs:
           VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
         run: |
           set -euxo pipefail
-          npm ci
+          npm install
           npm run build:pages
 
       - name: SPA fallback for client-side routing
