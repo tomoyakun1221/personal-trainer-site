@@ -61,7 +61,9 @@ export function Equipment() {
                 id={item.id}
                 className={`equipment-card equipment-card--${item.accent} ${index % 2 === 1 ? "equipment-card--reverse" : ""}`}
               >
-                <div className="equipment-card-visual">
+                <div
+                  className={`equipment-card-visual ${item.imageFit === "contain" ? "equipment-card-visual--contain" : ""}`}
+                >
                   <img src={item.image} alt={item.imageAlt} loading="lazy" />
                 </div>
                 <div className="equipment-card-body">
