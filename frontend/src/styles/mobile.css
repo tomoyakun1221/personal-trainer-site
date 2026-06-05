@@ -32,9 +32,18 @@ body {
     --header-h: 52px;
   }
 
-  .header-logo-mark {
+  .header-logo-mark-wrap {
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-mark {
+    width: 100%;
+    height: 100%;
+    transform: none;
+    object-fit: cover;
+    object-position: center;
   }
 
   .header-logo-main {
