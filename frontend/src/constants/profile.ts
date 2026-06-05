@@ -21,8 +21,15 @@ export const PROFILE_SPECIALTIES = [
   "自宅トレーニング・ボディケア",
 ];
 
-export const PROFILE_SECTIONS: { title?: string; paragraphs: string[] }[] = [
+export type ProfileSection = {
+  title?: string;
+  paragraphs: string[];
+  listItems?: string[];
+};
+
+export const PROFILE_SECTIONS: ProfileSection[] = [
   {
+    title: "経歴",
     paragraphs: [
       "大学卒業後、営業職、接客業、専門商社など様々な業界を経験し、2016年からはシステムエンジニアとして技術職に従事してきました。現在はフリーランスエンジニアとして活動する傍ら、パーソナルトレーナーとしても活動しています。",
       "長年デスクワーク中心の生活を続ける中で、「健康な身体づくりの重要性」を強く実感し、トレーニングや身体の仕組みについて専門的に学ぶことを決意しました。パーソナルトレーナー養成学校では、解剖学・運動生理学・栄養学を基礎から応用まで学び、科学的根拠に基づいた指導方法を習得しています。",
@@ -36,8 +43,16 @@ export const PROFILE_SECTIONS: { title?: string; paragraphs: string[] }[] = [
     ],
   },
   {
+    title: "運動歴",
     paragraphs: [
       "さらに、10年以上続けているサーフィンの経験を活かし、サーフィンのパフォーマンス向上に特化したトレーニング指導も行っています。",
+      "私の過去の運動歴としては、以下のとおりです。",
+    ],
+    listItems: [
+      "サーフィン歴10年以上",
+      "キックボクシング歴３年",
+      "テニス歴３年",
+      "卓球歴2年",
     ],
   },
   {

@@ -102,6 +102,25 @@
   margin-bottom: 0;
 }
 
+.profile-body-block:has(.profile-section-list) p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.profile-section-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--color-muted);
+  line-height: 1.9;
+}
+
+.profile-section-list li {
+  margin-bottom: 0.35rem;
+}
+
+.profile-section-list li:last-child {
+  margin-bottom: 0;
+}
+
 .profile-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

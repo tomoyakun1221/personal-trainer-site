@@ -60,6 +60,13 @@ export function Profile() {
               {section.paragraphs.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
+              {section.listItems && section.listItems.length > 0 && (
+                <ul className="profile-section-list">
+                  {section.listItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
               {section.title === "自身のダイエット実績" && (
                 <div className="profile-stats">
                   {PROFILE_STATS.map((stat) => (
@@ -73,6 +80,15 @@ export function Profile() {
             </div>
           ))}
 
+          <div className="profile-details card">
+            <h3>得意分野</h3>
+            <ul>
+              {PROFILE_SPECIALTIES.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ul>
+          </div>
+
           <div className="profile-cta card">
             <h3>こんな方におすすめ</h3>
             <ul className="profile-cta-list">
@@ -81,17 +97,6 @@ export function Profile() {
               ))}
             </ul>
             <p className="profile-closing">{PROFILE_CLOSING}</p>
-          </div>
-        </div>
-
-        <div className="profile-details">
-          <div className="card">
-            <h3>得意分野</h3>
-            <ul>
-              {PROFILE_SPECIALTIES.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
