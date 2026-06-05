@@ -90,6 +90,12 @@
   scroll-margin-top: calc(var(--layout-top-h) + 1rem);
 }
 
+.pricing-block--trainer {
+  background: linear-gradient(180deg, var(--color-bg) 0%, rgba(251, 146, 60, 0.06) 50%, var(--color-bg) 100%);
+  border-bottom: 1px solid var(--pricing-border);
+  scroll-margin-top: calc(var(--layout-top-h) + 1rem);
+}
+
 .pricing-block--bodymake {
   background: linear-gradient(180deg, rgba(34, 211, 238, 0.04) 0%, var(--color-bg) 100%);
 }

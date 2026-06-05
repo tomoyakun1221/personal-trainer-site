@@ -4,6 +4,7 @@ import type { PricingPlan } from "../types";
 import { TrialCta } from "./ContactCta";
 import { ContactFormLink } from "./ContactFormLink";
 import { InstagramLink } from "./InstagramLink";
+import { PROFILE_TAGLINE } from "../constants/profile";
 import { resolveBodymakePlans } from "../constants/bodymakePlans";
 import { resolveTicketPlans } from "../constants/pricingPlans";
 import { BrandHeading } from "./BrandHeading";
@@ -217,6 +218,14 @@ export function PricingContent({
 
       {homePreview ? (
         <>
+          <PricingPageLinkBlock
+            id="trainer-intro"
+            title="トレーナー紹介"
+            lead={`${PROFILE_TAGLINE}。資格やサポート内容の詳細はプロフィールをご覧ください。`}
+            to="/profile"
+            linkLabel="トレーナー紹介を見る"
+            blockClassName="pricing-block pricing-block--trainer"
+          />
           <PricingPageLinkBlock
             id="ticket-courses"
             title="回数券コース"
