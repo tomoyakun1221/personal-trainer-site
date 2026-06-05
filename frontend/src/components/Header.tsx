@@ -5,12 +5,12 @@ import "./Header.css";
 
 const navItems = [
   { to: "/", label: "トップ" },
-  { to: "/profile", label: "プロフィール" },
+  { to: "/profile", label: "トレーナー紹介" },
   { to: "/pricing", label: "料金" },
   { to: "/equipment", label: "設備" },
   { to: "/results", label: "実績" },
-  { to: "/about", label: "会社概要" },
   { to: "/contact", label: "予約・お問い合わせ" },
+  { to: "/about", label: "会社概要" },
 ];
 
 export function Header() {

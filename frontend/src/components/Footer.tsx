@@ -20,12 +20,12 @@ export function Footer({ setting }: FooterProps) {
         </div>
         <div className="footer-links">
           <Link to="/">トップ</Link>
-          <Link to="/profile">プロフィール</Link>
+          <Link to="/profile">トレーナー紹介</Link>
           <Link to="/pricing">料金</Link>
-          <Link to="/results">実績</Link>
-          <Link to="/about">会社概要</Link>
           <Link to="/equipment">設備</Link>
+          <Link to="/results">実績</Link>
           <Link to="/contact">予約・お問い合わせ</Link>
+          <Link to="/about">会社概要</Link>
         </div>
       </div>
       <div className="container footer-copy">

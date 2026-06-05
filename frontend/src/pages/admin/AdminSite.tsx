@@ -34,8 +34,8 @@ export function AdminSite() {
     { key: "trainer_name", label: "トレーナー名" },
     { key: "tagline", label: "キャッチコピー" },
     { key: "hero_description", label: "ヒーロー説明", rows: 3 },
-    { key: "profile_title", label: "プロフィール見出し" },
-    { key: "profile_body", label: "プロフィール本文", rows: 5 },
+    { key: "profile_title", label: "トレーナー紹介見出し" },
+    { key: "profile_body", label: "トレーナー紹介本文", rows: 5 },
     { key: "qualifications", label: "資格（改行区切り）", rows: 4 },
     { key: "specialties", label: "得意分野（改行区切り）", rows: 4 },
     { key: "instagram_url", label: "Instagram URL" },
@@ -60,7 +60,7 @@ export function AdminSite() {
           </div>
         ))}
         <div className="form-group">
-          <label>プロフィール画像</label>
+          <label>トレーナー紹介画像</label>
           <input type="file" accept="image/*" onChange={(e) => setProfileImage(e.target.files?.[0] || null)} />
         </div>
         <div className="form-group">

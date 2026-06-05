@@ -25,7 +25,7 @@ export function Profile() {
     <section className="section profile-page">
       <div className="container">
         <BrandHeading align="center" />
-        <h1 className="section-title profile-page-title">プロフィール</h1>
+        <h1 className="section-title profile-page-title">トレーナー紹介</h1>
 
         <div className="profile-grid">
           <div className="profile-image-wrap card">
