@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { BrandHeading } from "../components/BrandHeading";
+import { ContactCta } from "../components/ContactCta";
+import { InstagramLink } from "../components/InstagramLink";
 import { MACHINE_IMAGE, MACHINE_TRAINING_EXAMPLES } from "../constants/machine";
 import { EQUIPMENT_AUDIENCE_TAGS, EQUIPMENT_ITEMS } from "../constants/equipment";
 import "./Equipment.css";
@@ -26,7 +28,11 @@ export function Equipment() {
       <section className="equipment-all-in-one">
         <div className="container equipment-all-in-one-inner">
           <div className="equipment-all-in-one-visual">
-            <img src={MACHINE_IMAGE} alt="5 in 1 オールインワンマシン" loading="lazy" />
+            <img
+              src={MACHINE_IMAGE}
+              alt="オールインワン・マルチファンクションマシン（パワーラック＋ケーブル）"
+              loading="lazy"
+            />
             <span className="equipment-all-in-one-badge">5 in 1</span>
           </div>
           <div className="equipment-all-in-one-copy">
@@ -62,7 +68,7 @@ export function Equipment() {
                 className={`equipment-card equipment-card--${item.accent} ${index % 2 === 1 ? "equipment-card--reverse" : ""}`}
               >
                 <div
-                  className={`equipment-card-visual ${item.imageFit === "contain" ? "equipment-card-visual--contain" : ""}`}
+                  className={`equipment-card-visual ${item.imageFit === "contain" ? "equipment-card-visual--contain" : ""} ${item.id === "hex-bar" || item.id === "punching" ? "equipment-card-visual--tall" : ""}`}
                 >
                   <img src={item.image} alt={item.imageAlt} loading="lazy" />
                 </div>
@@ -74,6 +80,16 @@ export function Equipment() {
                       {p}
                     </p>
                   ))}
+                  {item.audienceBlocks && item.audienceBlocks.length > 0 && (
+                    <div className="equipment-audience-blocks">
+                      {item.audienceBlocks.map((block) => (
+                        <div key={block.title} className="equipment-audience-block">
+                          <h4 className="equipment-audience-block-title">{block.title}</h4>
+                          <p className="equipment-audience-block-text">{block.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   <ul className="equipment-card-highlights">
                     {item.highlights.map((h) => (
                       <li key={h}>{h}</li>
@@ -91,9 +107,13 @@ export function Equipment() {
           <h2>設備を実際に体験してみませんか？</h2>
           <p>まずは無料カウンセリング・体験トレーニングで、ジムの雰囲気と器具をご確認ください。</p>
           <div className="equipment-cta-actions">
-            <Link to="/" className="btn btn-primary">
-              体験・カウンセリングのご予約
-            </Link>
+            <div className="equipment-cta-row">
+              <ContactCta
+                label="体験・カウンセリングのご予約"
+                subject="体験・カウンセリングのご予約"
+              />
+              <InstagramLink />
+            </div>
             <Link to="/pricing" className="btn btn-outline">
               料金を見る
             </Link>

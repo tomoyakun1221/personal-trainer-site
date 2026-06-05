@@ -14,7 +14,11 @@ export function MachineIntroSection() {
         <div className="machine-intro-grid">
           <div className="machine-intro-visual">
             <div className="machine-intro-frame">
-              <img src={MACHINE_IMAGE} alt="最新型オールインワンマシン" loading="lazy" />
+              <img
+                src={MACHINE_IMAGE}
+                alt="オールインワン・マルチファンクションマシン（パワーラック＋ケーブル）"
+                loading="lazy"
+              />
               <span className="machine-intro-badge">5 in 1</span>
             </div>
           </div>

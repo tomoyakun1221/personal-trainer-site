@@ -1,0 +1,305 @@
+.california-vibe {
+  position: relative;
+  padding: 3.5rem 0 4rem;
+  overflow: hidden;
+  background:
+    linear-gradient(165deg, #1c1510 0%, #121820 42%, #0a0f14 100%);
+  border-top: 1px solid rgba(251, 191, 36, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.california-vibe-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 20%, rgba(251, 146, 60, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 75%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+}
+
+.california-vibe-inner {
+  position: relative;
+}
+
+.california-vibe-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.california-vibe-eyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #fbbf24;
+}
+
+.california-vibe-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.55rem, 4.5vw, 2.15rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff7ed 0%, #fde68a 45%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.california-vibe-title-br {
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .california-vibe-title-br {
+    display: block;
+  }
+}
+
+.california-vibe-lead {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.9;
+  color: #cbd5e1;
+}
+
+.california-vibe-main {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .california-vibe-main {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 2.75rem;
+    align-items: center;
+  }
+}
+
+/* Gallery — グリッドで重ならず、傾きと影で立体感 */
+.california-vibe-gallery {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem 0 0.5rem;
+}
+
+.california-vibe-collage {
+  position: relative;
+  display: grid;
+  width: min(100%, 500px);
+  margin-inline: auto;
+  padding: 0.75rem;
+  gap: 1.15rem;
+  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "tall top"
+    "tall bottom";
+  perspective: 1200px;
+}
+
+.california-vibe-collage::before {
+  content: "";
+  position: absolute;
+  inset: 12% 5% 8%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(251, 191, 36, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+.california-vibe-photo {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  line-height: 0;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.28),
+    0 20px 48px rgba(0, 0, 0, 0.48);
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.california-vibe-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.california-vibe-photo--tall {
+  grid-area: tall;
+  transform: rotate(-2.5deg);
+  transform-origin: 30% 20%;
+}
+
+.california-vibe-photo--tall img {
+  object-position: center 58%;
+}
+
+.california-vibe-photo--top {
+  grid-area: top;
+  align-self: end;
+  margin-top: 0.35rem;
+  transform: rotate(4deg);
+  transform-origin: 80% 80%;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    0 22px 52px rgba(0, 0, 0, 0.52);
+}
+
+.california-vibe-photo--bottom {
+  grid-area: bottom;
+  align-self: start;
+  transform: rotate(-3deg);
+  transform-origin: 70% 30%;
+}
+
+@media (min-width: 960px) {
+  .california-vibe-collage {
+    width: 100%;
+    max-width: 520px;
+    gap: 1.25rem 1.1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 559px) {
+  .california-vibe-collage {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "tall tall"
+      "top bottom";
+    gap: 1rem;
+    max-width: 400px;
+  }
+
+  .california-vibe-photo--tall {
+    max-width: 72%;
+    justify-self: center;
+    transform: rotate(-1.5deg);
+  }
+
+  .california-vibe-photo--top {
+    margin-top: 0;
+    transform: rotate(3deg);
+  }
+
+  .california-vibe-photo--bottom {
+    transform: rotate(-2.5deg);
+  }
+}
+
+@media (hover: hover) {
+  .california-vibe-collage:hover .california-vibe-photo--tall {
+    transform: rotate(-1.5deg) translateY(-4px);
+    box-shadow:
+      0 4px 10px rgba(0, 0, 0, 0.32),
+      0 26px 58px rgba(0, 0, 0, 0.55);
+  }
+
+  .california-vibe-collage:hover .california-vibe-photo--top {
+    transform: rotate(3deg) translateY(-5px);
+  }
+
+  .california-vibe-collage:hover .california-vibe-photo--bottom {
+    transform: rotate(-2deg) translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .california-vibe-photo {
+    transition: none;
+  }
+}
+
+/* Copy */
+.california-vibe-copy {
+  text-align: left;
+}
+
+.california-vibe-quote {
+  margin: 0 0 1.5rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius);
+  border-left: 3px solid #fbbf24;
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.california-vibe-quote p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.75;
+  color: #f8fafc;
+}
+
+.california-vibe-quote strong {
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.california-vibe-pillars {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.california-vibe-pillar {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.california-vibe-pillar-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(251, 191, 36, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+.california-vibe-pillar h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fde68a;
+}
+
+.california-vibe-pillar p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
+
+.california-vibe-closing {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: #e2e8f0;
+}
+
+.california-vibe-closing-accent {
+  font-weight: 800;
+  color: #fbbf24;
+}

@@ -4,10 +4,14 @@
 
 .equipment-hero {
   padding-bottom: 2rem;
+  text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .equipment-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -15,9 +19,16 @@
   margin-bottom: 1rem;
 }
 
+.equipment-hero .section-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
 .equipment-hero-lead {
   max-width: 36rem;
-  margin-inline: auto;
+  margin: 0 auto 1.5rem;
+  text-align: center;
 }
 
 .equipment-audience-tags {
@@ -78,12 +89,15 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   line-height: 0;
+  background: #0d1218;
 }
 
 .equipment-all-in-one-visual img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
+  object-position: center;
 }
 
 .equipment-all-in-one-badge {
@@ -219,7 +233,7 @@
 .equipment-card-visual--contain img {
   width: 100%;
   height: auto;
-  max-height: min(70vw, 400px);
+  max-height: min(85vw, 480px);
   object-fit: contain;
   object-position: center;
   aspect-ratio: auto;
@@ -227,11 +241,26 @@
 
 @media (min-width: 768px) {
   .equipment-card-visual--contain {
-    min-height: 280px;
+    min-height: 300px;
   }
 
   .equipment-card-visual--contain img {
-    max-height: 360px;
+    max-height: 420px;
+  }
+}
+
+/* 縦長（サンドバッグ・ヘックスバー） */
+.equipment-card-visual--contain.equipment-card-visual--tall img {
+  max-height: min(95vw, 520px);
+}
+
+@media (min-width: 768px) {
+  .equipment-card-visual--contain.equipment-card-visual--tall {
+    min-height: 340px;
+  }
+
+  .equipment-card-visual--contain.equipment-card-visual--tall img {
+    max-height: 480px;
   }
 }
 
@@ -270,6 +299,54 @@
   margin: 0 0 0.85rem;
   font-size: 0.92rem;
   line-height: 1.85;
+  color: var(--color-muted);
+}
+
+.equipment-audience-blocks {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.25rem 0 0;
+}
+
+@media (min-width: 640px) {
+  .equipment-audience-blocks {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.equipment-audience-block {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.equipment-card--cyan .equipment-audience-block {
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+.equipment-card--mint .equipment-audience-block {
+  border-color: rgba(34, 211, 168, 0.22);
+}
+
+.equipment-audience-block-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-accent-orange);
+  letter-spacing: 0.02em;
+}
+
+.equipment-card--mint .equipment-audience-block-title {
+  color: #6ee7b7;
+}
+
+.equipment-audience-block-text {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.75;
   color: var(--color-muted);
 }
 
@@ -315,11 +392,20 @@
 
 .equipment-cta-actions {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.equipment-cta-row {
+  display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+  align-items: center;
 }
 
-.equipment-cta-actions .btn {
-  min-width: min(100%, 260px);
+.equipment-cta-row .btn,
+.equipment-cta-actions > .btn {
+  min-width: min(100%, 280px);
 }

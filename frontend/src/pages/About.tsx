@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
 import { BrandHeading } from "../components/BrandHeading";
-import { ContactCta } from "../components/ContactCta";
-import { InstagramLink } from "../components/InstagramLink";
 import {
   COMPANY_CLOSED,
   COMPANY_EMAIL,
@@ -65,14 +63,6 @@ export function About() {
               </div>
             ))}
           </dl>
-        </div>
-
-        <div className="about-actions">
-          <ContactCta label="メールでお問い合わせ" />
-          <a href={`tel:${COMPANY_TEL.replace(/-/g, "")}`} className="btn btn-outline">
-            {COMPANY_TEL} に電話
-          </a>
-          <InstagramLink />
         </div>
       </div>
     </section>

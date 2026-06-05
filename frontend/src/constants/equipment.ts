@@ -1,5 +1,10 @@
 import { assetPath } from "../lib/assetPath";
 
+export interface EquipmentAudienceBlock {
+  title: string;
+  text: string;
+}
+
 export interface EquipmentItem {
   id: string;
   title: string;
@@ -11,6 +16,8 @@ export interface EquipmentItem {
   accent: "cyan" | "orange" | "mint";
   /** contain = 写真全体を表示（縦長・見切れ防止） */
   imageFit?: "contain" | "cover";
+  /** 初心者／パフォーマンス向けの効果・目的（わかりやすく2枠表示） */
+  audienceBlocks?: EquipmentAudienceBlock[];
 }
 
 export const EQUIPMENT_AUDIENCE_TAGS = [
@@ -28,6 +35,7 @@ export const EQUIPMENT_ITEMS: EquipmentItem[] = [
     subtitle: "腰への負担を抑えた、初心者にも扱いやすいデッドリフト",
     image: assetPath("images/equipment-hex-bar.png"),
     imageAlt: "赤いオープンフレームのヘックスバー",
+    imageFit: "contain",
     paragraphs: [
       "通常のバーベルより姿勢を取りやすく、腰へのストレスを抑えながら全身を効率よく鍛えられます。",
       "デッドリフトやスクワット系の種目を、フォームを整えながら安全に習得したい方に最適です。運動初心者の方でも、トレーナーと一緒なら無理なくステップアップできます。",
@@ -47,6 +55,52 @@ export const EQUIPMENT_ITEMS: EquipmentItem[] = [
       "ダイエット中の筋トレや、ボディメイクで「少しずつ負荷を上げたい」という方にも向いています。",
     ],
     highlights: ["負荷調整が自在", "ダイエット", "ボディメイク"],
+    accent: "cyan",
+  },
+  {
+    id: "water-bag",
+    title: "ウォーターバッグ",
+    subtitle: "中の水が動く「不安定な負荷」で体幹を自然に鍛える",
+    image: assetPath("images/equipment-water-bag.png"),
+    imageAlt: "GORILLA BOB ウォーターバッグ",
+    imageFit: "contain",
+    paragraphs: [
+      "袋の中の水が揺れることで、ダンベルのように力が一直線に伝わらないトレーニングができます。姿勢を保とうとする本能的な反応が働き、腹筋・背筋などの体幹まわりを効率よく刺激します。",
+    ],
+    audienceBlocks: [
+      {
+        title: "運動初心者の方へ",
+        text: "入れる水量で重さを調整できるため、自分のレベルから無理なくスタート可能。動きが単調になりにくく、「体幹を意識する」感覚を楽しみながら身につけられます。",
+      },
+      {
+        title: "パフォーマンスを高めたい方へ",
+        text: "サーフィンや球技など、動きの中でバランスが変わるスポーツに近い負荷。反応して体幹を固める力・ブレない軸の強さが、実戦のパフォーマンス向上につながります。",
+      },
+    ],
+    highlights: ["体幹強化", "バランス", "調整しやすい"],
+    accent: "mint",
+  },
+  {
+    id: "burn-machine",
+    title: "バーンマシン",
+    subtitle: "腕をくるくる回すだけで肩まわりと体幹を同時に刺激",
+    image: assetPath("images/equipment-burn-machine.png"),
+    imageAlt: "バーンマシン（回転式トレーニング器具）",
+    imageFit: "contain",
+    paragraphs: [
+      "ハンドルがリング内をスムーズに回転する独自の器具。肩・腕の持久力に加え、体を固定して動かすことで体幹も同時に鍛えられます。",
+    ],
+    audienceBlocks: [
+      {
+        title: "運動初心者の方へ",
+        text: "難しいフォームの種目が少なく、トレーナーが付き添えばすぐに始めやすいメニュー。肩こり解消や姿勢改善を意識しながら、楽しく続けられるトレーニングです。",
+      },
+      {
+        title: "パフォーマンスを高めたい方へ",
+        text: "肩関節まわりの持久力・回転動作の強化に直結。サーフィンのパドリングやスイング動作など、肩を使い続けるスポーツのパフォーマンスアップに効果的です。",
+      },
+    ],
+    highlights: ["肩の持久力", "体幹固定", "回転動作"],
     accent: "cyan",
   },
   {
