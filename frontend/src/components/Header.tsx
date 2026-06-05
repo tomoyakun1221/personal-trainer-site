@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { GYM_LABEL, GYM_NAME } from "../constants/brand";
+import { assetPath } from "../lib/assetPath";
 import "./Header.css";
 
 const navItems = [
@@ -20,7 +21,14 @@ export function Header() {
     <header className="header">
       <div className="container header-inner">
         <NavLink to="/" className="header-logo" onClick={() => setOpen(false)}>
-          <span className="header-logo-mark" aria-hidden />
+          <img
+            src={assetPath("favicon-32x32.png")}
+            alt=""
+            className="header-logo-mark"
+            width={36}
+            height={36}
+            decoding="async"
+          />
           <span className="header-logo-text">
             <span className="header-logo-sub">{GYM_LABEL}</span>
             <span className="header-logo-main">{GYM_NAME}</span>
