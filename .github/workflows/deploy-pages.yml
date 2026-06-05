@@ -29,6 +29,7 @@ jobs:
         env:
           VITE_BASE_PATH: /personal-trainer-site/
           VITE_STATIC_SITE: "true"
+          VITE_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
         run: |
           set -euxo pipefail
           npm ci

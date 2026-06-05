@@ -24,6 +24,8 @@ export function Footer({ setting }: FooterProps) {
           <Link to="/pricing">料金</Link>
           <Link to="/results">実績</Link>
           <Link to="/about">会社概要</Link>
+          <Link to="/equipment">設備</Link>
+          <Link to="/contact">予約・お問い合わせ</Link>
         </div>
       </div>
       <div className="container footer-copy">

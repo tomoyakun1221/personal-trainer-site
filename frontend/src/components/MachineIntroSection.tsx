@@ -40,7 +40,7 @@ export function MachineIntroSection() {
             </ul>
 
             <div className="machine-intro-footer">
-              <Link to="/equipment" className="btn btn-primary">
+              <Link to="/equipment#equipment-top" className="btn btn-primary">
                 トレーニング設備の詳細を見る
               </Link>
             </div>

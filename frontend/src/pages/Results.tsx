@@ -36,13 +36,14 @@ export function Results() {
   }, []);
 
   useEffect(() => {
-    if (!location.hash) return;
-    const target = document.querySelector(location.hash);
-    if (!target) return;
-    requestAnimationFrame(() => {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }, [location.hash, loading]);
+    if (loading || !location.hash) return;
+    const id = location.hash;
+    const scrollToTarget = () => document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    requestAnimationFrame(scrollToTarget);
+    const timer = window.setTimeout(scrollToTarget, 250);
+    return () => window.clearTimeout(timer);
+  }, [location.hash, location.pathname, loading]);
 
   return (
     <div className="results-page">

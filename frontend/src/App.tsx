@@ -6,6 +6,7 @@ import { Pricing } from "./pages/Pricing";
 import { Results } from "./pages/Results";
 import { Equipment } from "./pages/Equipment";
 import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
 import { AdminLayout } from "./pages/admin/AdminLayout";
 import { AdminLogin } from "./pages/admin/AdminLogin";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="equipment" element={<Equipment />} />
           <Route path="results" element={<Results />} />
           <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
         {!isStaticSite && (
           <>
@@ -41,7 +43,6 @@ export default function App() {
             </Route>
           </>
         )}
-        <Route path="/contact" element={<Navigate to="/" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

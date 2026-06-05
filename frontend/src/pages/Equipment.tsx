@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { BrandHeading } from "../components/BrandHeading";
-import { ContactCta } from "../components/ContactCta";
 import { InstagramLink } from "../components/InstagramLink";
 import { MACHINE_IMAGE, MACHINE_TRAINING_EXAMPLES } from "../constants/machine";
 import { EQUIPMENT_AUDIENCE_TAGS, EQUIPMENT_ITEMS } from "../constants/equipment";
@@ -9,7 +8,7 @@ import "./Equipment.css";
 export function Equipment() {
   return (
     <div className="equipment-page">
-      <section className="section equipment-hero">
+      <section id="equipment-top" className="section equipment-hero">
         <div className="container equipment-hero-inner">
           <BrandHeading align="center" />
           <h1 className="section-title">トレーニング設備・器具</h1>
@@ -108,10 +107,9 @@ export function Equipment() {
           <p>まずは無料カウンセリング・体験トレーニングで、ジムの雰囲気と器具をご確認ください。</p>
           <div className="equipment-cta-actions">
             <div className="equipment-cta-row">
-              <ContactCta
-                label="体験・カウンセリングのご予約"
-                subject="体験・カウンセリングのご予約"
-              />
+              <Link to="/contact" className="btn btn-primary">
+                体験・カウンセリングのご予約
+              </Link>
               <InstagramLink />
             </div>
             <Link to="/pricing" className="btn btn-outline">

@@ -10,6 +10,7 @@ const navItems = [
   { to: "/equipment", label: "設備" },
   { to: "/results", label: "実績" },
   { to: "/about", label: "会社概要" },
+  { to: "/contact", label: "予約・お問い合わせ" },
 ];
 
 export function Header() {
