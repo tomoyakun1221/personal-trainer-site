@@ -38,7 +38,7 @@ PricingPlan.delete_all
     period: "回",
     plan_category: "trial",
     course_breakdown: nil,
-    description: "※無料で実施致します！！",
+    description: "※初回限定・無料で実施致します！！",
     target_audience: nil,
     featured: true,
     position: 0,

@@ -52,7 +52,6 @@ export const PROFILE_SECTIONS: ProfileSection[] = [
       "サーフィン歴10年以上",
       "キックボクシング歴３年",
       "テニス歴３年",
-      "卓球歴2年",
     ],
   },
   {

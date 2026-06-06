@@ -189,6 +189,7 @@ export function PricingContent({
               <h2 id="trial-heading" className="pricing-section-heading">
                 カウンセリング／体験トレーニング
               </h2>
+              <p className="pricing-block-lead">初回限定のサービスです。</p>
             </header>
 
             <div className="pricing-trial-card">
@@ -204,7 +205,7 @@ export function PricingContent({
                 ))}
               </ul>
               <div className="pricing-trial-action">
-                <p className="pricing-trial-free-label">※無料で実施致します！！</p>
+                <p className="pricing-trial-free-label">※初回限定・無料で実施致します！！</p>
                 {showCta && (
                   <PricingCtaRow>
                     <TrialCta />

@@ -63,7 +63,7 @@ export const ALL_PRICING_PLANS_FALLBACK: PricingPlan[] = [
     period: "回",
     plan_category: "trial",
     course_breakdown: null,
-    description: "※無料で実施致します！！",
+    description: "※初回限定・無料で実施致します！！",
     target_audience: null,
     featured: true,
     position: 0,
