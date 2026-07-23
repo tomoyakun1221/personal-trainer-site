@@ -6,8 +6,15 @@
 
 1. リポジトリ https://github.com/tomoyakun1221/personal-trainer-site を開く
 2. **Settings** → **Pages**
-3. **Build and deployment** → Source: **GitHub Actions**
-4. `main` ブランチへ push すると自動デプロイ（約 2〜3 分）
+3. **Build and deployment** → Source: **Deploy from a branch**
+4. Branch: **gh-pages** / **/(root)** → Save
+5. `main` へ push すると GitHub Actions が `gh-pages` へ自動デプロイ（約 2〜3 分）
+
+手動デプロイ（Actions が動かない場合）:
+
+```bash
+sh scripts/deploy-gh-pages.sh
+```
 
 ## コードを push
 
